@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 var string = "-- restart --";
 console.log(string);
+     $(".horzcenter").slideUp();
 
  
   function createHoverState (myobject){
@@ -107,5 +108,20 @@ console.log(string);
 /*  console.log($(".slider").width);
 */  
   createHoverState($(".slider a.ui-slider-handle"));
+
+
+  $("#submit").click(function(){
+     // $("#wrapper").fadeOut();
+     $(".horizontal").fadeOut();
+     $(".rule").fadeOut();
+     $(".task").fadeOut();
+     $("#submit").fadeOut();
+     
+
+    $(".horzcenter").slideDown();
+    // $("#thanks").fadeIn();
+
+  });
+
 
 });
