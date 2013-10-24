@@ -1,5 +1,5 @@
-Homework 3 - FOO
-========
+Version of app presented in class.Has the updated task titles and color scheme.
+
 
 ## Process
 + 
