@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 Version of app presented in class.Has the updated task titles and color scheme.
 
+=======
+Homework 3 - FOO
+========
+>>>>>>> 398ee7e8d3dc120b2de19696f34760b1c0447ae9
 
 ## Process
 + 
