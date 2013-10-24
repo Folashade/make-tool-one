@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var pg = require('pg');
 
 /** // FOR HEROKU SERVER  // 
