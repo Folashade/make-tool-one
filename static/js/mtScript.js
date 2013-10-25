@@ -1,27 +1,27 @@
 $( document ).ready(function() {
+
 var string = "-- restart --";
 console.log(string);
-     $(".horzcenter").slideUp();
 
+  $(".horzcenter").slideUp();
  
   function createHoverState (myobject){
     myobject.hover(function() {
       $(this).prev().toggleClass('hilite');
-/*      console.log("hover");
-*/    });
+/*      console.log("hover"); */
+      });
     myobject.mousedown(function() {
       $(this).prev().addClass('dragging');
       $("*").mouseup(function() {
         $(myobject).prev().removeClass('dragging');
-/*        console.log("mouseup");
-*/      });
+/*        console.log("mouseup");  */
+        });
     });
   }
   
-  
-    var helpp = function(){
-    console.log("WHAHAHHHAHAHHAHAHA");
-  }
+
+
+  /** // SLIDER SCRIPT // **/
 
   $(".slider").slider({
     orientation: "horizontal",
@@ -123,10 +123,11 @@ console.log(string);
 
   });
 
+    /** // Alert 
     var iframe = document.createElement("IFRAME");
     iframe.setAttribute("src", 'data:text/plain,');
     document.documentElement.appendChild(iframe);
     window.frames[0].window.alert("We are working to redesign BNY Mellon's Broker/Dealer experience. <br> Please take a moment to tell us more about your daily tasks so we can better understand what would benefit you.");
     iframe.parentNode.removeChild(iframe);
-    // alert("");
+    // alert(""); **/
 });
