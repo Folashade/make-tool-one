@@ -21,7 +21,7 @@ $( document ).ready(function() {
   
 
 
-  /** // SLIDER SCRIPT // **/
+  /*** // SLIDER SCRIPT // ***/
 
   $(".slider").slider({
     orientation: "horizontal",
@@ -78,7 +78,7 @@ $( document ).ready(function() {
   }); /* end of 'slider' function */
   
 
- /** // VARYING SLIDER SCRIPT // **/
+  /*** // VARYING SLIDER SCRIPT // ***/
 	// makes the sliders vary from max to min as the page goes down 
   $("#blue").slider( "value", 100 );
   $('.slider').each(function(index) {
@@ -102,7 +102,7 @@ $( document ).ready(function() {
  
   createHoverState($(".slider a.ui-slider-handle"));
 
-  /** // SUBMIT BUTTON SCRIPT // **/
+  /*** // SUBMIT BUTTON SCRIPT // ***/
 	 // Need to get the values of all the current sliders and (eventually) store in the db
   $("#submit").click(function(){
      // $("#wrapper").fadeOut();
@@ -115,13 +115,13 @@ $( document ).ready(function() {
   }); /* END OF: submit function */
 
 
-    /** // CUSTOMIZED ALERT BOX  // 
-	    var iframe = document.createElement("IFRAME");
-	    iframe.setAttribute("src", 'data:text/plain,');
-	    document.documentElement.appendChild(iframe);
-	    window.frames[0].window.alert("We are working to redesign BNY Mellon's Broker/Dealer experience. <br> Please take a moment to tell us more about your daily tasks so we can better understand what would benefit you.");
-	    iframe.parentNode.removeChild(iframe);
-	    // alert(""); 
-	**/
+   /*** // CUSTOMIZED ALERT BOX  // 
+    var iframe = document.createElement("IFRAME");
+    iframe.setAttribute("src", 'data:text/plain,');
+    document.documentElement.appendChild(iframe);
+    window.frames[0].window.alert("We are working to redesign BNY Mellon's Broker/Dealer experience. <br> Please take a moment to tell us more about your daily tasks so we can better understand what would benefit you.");
+    iframe.parentNode.removeChild(iframe);
+    // alert(""); 
+  ***/
 
 }); /* END OF: document.ready */
