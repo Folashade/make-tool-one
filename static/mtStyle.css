@@ -23,7 +23,6 @@ html, body {
   background-color: #222;
   font-family: Roboto Slab;
   font-weight: 400;
-  font-size: 27px;
   color: #bbb;
   overflow-x: hidden;
 }
@@ -134,28 +133,32 @@ article.mainfeature {
 
 .task {
   /*background-color: #dedede;*/
-  margin: 0 10%;
+  /*margin: 0 2%;*/
   /*margin-bottom: 10px;*/
   border-radius: 10px;
   padding-top: 1em;
-      -webkit-transition: width 1s ease-in;
+  /*padding-bottom: 1em;*/
+  -webkit-transition: width 1s ease-in;
   transition: width 1s ease-in;
 }
 
 
 .taskname {
   display: inline-block;
-  width: 200px;
+  width: 380px;
   /*height: 50px;*/
   margin: 0 30px 30px 0;
   text-align: left;
-      -webkit-transition: width 1s ease-in;
+  font-size: 23px;
+  -webkit-transition: width 1s ease-in;
   transition: width 1s ease-in;
 }
 
 .slidebars {
   display: inline-block;
   width: 300px;
+    padding-top: 1em;
+
 }
 
 #wrapper {
@@ -220,7 +223,7 @@ article.mainfeature {
   left: -5em;
   top: -.7em;
   font-size: 12px;
-
+  /*font-weight: 100;*/
 }
 
 .slider-freq {
@@ -233,6 +236,7 @@ article.mainfeature {
   font-size: 12px;
   color: #aaa;
   margin-bottom: 1em;
+  /*font-weight: 100;*/
 }
 
 .slider-stat {
@@ -244,7 +248,7 @@ article.mainfeature {
   padding-left: 1em;
   font-size: 12px;
   color: #aaa;
-
+  /*font-weight: 100;*/
 }
 
 .horizontal{
@@ -278,6 +282,16 @@ article.mainfeature {
 
 #submit :active{
   border: 3px outset #fff;
+}
+
+#description {
+  font-size: 20px;
+  font-weight: 100;
+  padding-right: 20%;
+  padding-left: 20%;
+  line-height: 1.2;
+  color: #eee;
+  /*background: #eee; */
 }
 
 @media all and (max-width: 650px) and (min-width: 0px) {

@@ -123,5 +123,10 @@ console.log(string);
 
   });
 
-
+    var iframe = document.createElement("IFRAME");
+    iframe.setAttribute("src", 'data:text/plain,');
+    document.documentElement.appendChild(iframe);
+    window.frames[0].window.alert("We are working to redesign BNY Mellon's Broker/Dealer experience. <br> Please take a moment to tell us more about your daily tasks so we can better understand what would benefit you.");
+    iframe.parentNode.removeChild(iframe);
+    // alert("");
 });
