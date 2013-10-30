@@ -197,7 +197,7 @@ app.listen(process.env.PORT || 5000)
 
 
 /************* open window *************/
-setTimeout(function() {
-	var spawn = require('child_process').spawn
-	spawn('open', ['http://localhost:5000']);
-}, 500);
+// setTimeout(function() {
+// 	var spawn = require('child_process').spawn
+// 	spawn('open', ['http://localhost:5000']);
+// }, 500);
