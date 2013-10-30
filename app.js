@@ -1,6 +1,6 @@
 var pg = require('pg');
 
-/** // FOR HEROKU SERVER  // 
+/** // FOR HEROKU SERVER  //  **/
 var client = new pg.Client({
 	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
 	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
@@ -17,7 +17,7 @@ client.connect(process.env.DATABASE_URL, function(err, client) {
   });
 });
 
-// not working  **/
+// not working 
 
 
 /** // FOR LOCAL SERVER  // **/
@@ -26,9 +26,9 @@ client.connect(process.env.DATABASE_URL, function(err, client) {
 // client.connect();
 
 /** // FOR HEROKU SERVER  // **/
-var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
-var client = new pg.Client(conString);
-client.connect();
+// var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+// var client = new pg.Client(conString);
+// client.connect();
 
 /** // SETTING UP BACKEND // **/
 var express = require("express"); // imports express
