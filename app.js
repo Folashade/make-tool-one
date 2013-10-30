@@ -1,3 +1,5 @@
+// BRANCH: SLIDER - TICKS
+
 var pg = require('pg');
 
 /** // FOR HEROKU SERVER  //  **/
