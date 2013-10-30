@@ -21,14 +21,14 @@ client.connect(process.env.DATABASE_URL, function(err, client) {
 
 
 /** // FOR LOCAL SERVER  // **/
-var conString = "postgres://FOkunubi:folashade@localhost/cobalt";
-var client = new pg.Client(conString);
-client.connect();
-
-/** // FOR HEROKU SERVER  // **/
-// var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+// var conString = "postgres://FOkunubi:folashade@localhost/cobalt";
 // var client = new pg.Client(conString);
 // client.connect();
+
+/** // FOR HEROKU SERVER  // **/
+var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+var client = new pg.Client(conString);
+client.connect();
 
 /** // SETTING UP BACKEND // **/
 var express = require("express"); // imports express
@@ -194,3 +194,10 @@ function initServer() {
 // Finally, initialize the server, then activate the server at port 8889
 initServer();
 app.listen(process.env.PORT || 5000)
+
+
+/************* open window *************/
+setTimeout(function() {
+	var spawn = require('child_process').spawn
+	spawn('open', ['http://localhost:5000']);
+}, 500);

@@ -1,10 +1,31 @@
-<<<<<<< HEAD
 Version of app presented in class.Has the updated task titles and color scheme.
 
-=======
-Homework 3 - FOO
-========
->>>>>>> 398ee7e8d3dc120b2de19696f34760b1c0447ae9
+ + Tabs Open
+	- Make Tool
+	- Server 
+	- Heroku Logs
+	- Local PSQL
+	- PSQL Heroku DB
+	- Local Tunnel
+	
+ + Connect to DB Local
+	- load dump file: pg_restore --verbose --clean --no-acl --no-owner -U 'FOkunubi' -d cobalt latest.dump
+	- open postgres: psql
+	- used database: \c cobalt
+
+ + Connect to DB remote
+	- psql "dbname=d2d1mma7140cav host=ec2-54-225-102-116.compute-1.amazonaws.com user=mpeyvkpeoywcaj password=mQB_kCBkTaZCP-ct0OhCNl3zBO port=5432 sslmode=require"
+	-- ex manipulation: CREATE TABLE surveys (
+							     title varchar(100),
+							     employee integer,
+							     content varchar(500)
+							 );
+    -- 						INSERT INTO surveys VALUES
+							d2d1mma7140cav->     ('FirstName LastName', 1, ' This is an example sentence. 			
+							{(JSON:OBject)} ');
+							
+	
+
 
 ## Process
 + 
