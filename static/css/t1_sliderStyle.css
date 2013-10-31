@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: 'Roboto Slab';
   font-style: normal;
@@ -102,7 +104,7 @@ article.mainfeature {
   background-color: #9fd5ff;
 /*  background-color: #25b3c6;
 */  margin-bottom: 10px;
-    /*width: %;*/
+    width: 95%;
 }
 .slider.green div.ui-slider-range {
   background-color: #9edbbc;
@@ -178,8 +180,8 @@ article.mainfeature {
 
 .slidebars {
   display: inline-block;
-  width: 300px;
-  padding-top: 1em;
+  width: 400px;
+    padding-top: 1em;
 
 }
 
