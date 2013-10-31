@@ -1,0 +1,60 @@
+
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+   <title>LabeledSlider Font Size Scaling Test</title>
+
+<!--    // <script src="http://code.jquery.com/jquery.js"></script>
+   // <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
+   <script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
+   <script language="javascript" type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+   <!-- <link rel="stylesheet" href="../../../themes/base/jquery.ui.labeledslider.css"> -->
+   <link rel="stylesheet" type="text/css" href='css/t1_tickSliderExtention.css'>
+
+   <!-- // <script src="../../../ui/jquery.ui.labeledslider.js"></script> -->
+   <script language="javascript" type="text/javascript" src="js/t1_tickSliderExtention.js"></script>
+
+
+   <script>
+   $(function() {
+      $('#size1-h').labeledslider({ tickInterval: 10 });
+      $('#size2-h').labeledslider({ tickInterval: 10 });
+      $('#size3-h').labeledslider({ tickInterval: 10 });
+
+   });
+   </script>
+   <style>
+      body { font-family: sans-serif,arial;  color: #fff;}
+      .wrapper.horizontal { width: 400px; margin: auto; }
+      .wrapper.vertical { position: relative; width: 400px; height: 250px; margin: auto; }
+      .wrapper.vertical > div { position: absolute; top: 0; }
+      .wrapper.vertical .ui-slider { height: 250px; }
+
+      #size1-h, #size1-v { font-size: 8pt; }
+      #size2-h, #size2-v { font-size: 12pt; }
+      #size3-h, #size3-v { font-size: 16pt; }
+
+   </style>
+</head>
+<body>
+
+
+<div class="wrapper horizontal">
+   <h3>LabeledSlider Font Size Scaling Test</h3>
+
+
+   <br/>
+
+   <div id="size1-h"></div>
+   <div id="size2-h"></div>
+   <div id="size3-h"></div>
+</div>
+
+
+
+</body>
+</html>

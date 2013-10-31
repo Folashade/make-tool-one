@@ -8,7 +8,8 @@
      <link rel="stylesheet" type="text/css" href='css/reset.css'>
      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/start/jquery-ui.css" type="text/css" />
      <link rel="stylesheet" type="text/css" href='css/t1_sliderStyle.css'>
-     <link rel="stylesheet" type="text/css" href='css/t1_doubleSlider.css'>
+     <link rel="stylesheet" type="text/css" href='css/t1_tickSliderExtention.css'>
+
 
      <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
      <!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>-->
@@ -17,6 +18,25 @@
 
      <script language="javascript" type="text/javascript" src="js/t1_sliderScript.js"></script>
      <script language="javascript" type="text/javascript" src="js/submitScript.js"></script>
+     <script language="javascript" type="text/javascript" src="js/t1_tickSliderExtention.js"></script>
+
+    <script>
+     $(function() {
+        $('#size1-h').labeledslider({ tickInterval: 10 });
+      });
+    </script>
+
+    <style>
+      body { font-family: sans-serif,arial;  }
+      .wrapper-tick.horizontal { width: 400px; margin: auto; }
+      .wrapper-tick.vertical { position: relative; width: 400px; height: 250px; margin: auto; }
+      .wrapper-tick.vertical > div { position: absolute; top: 0; }
+      .wrapper-tick.vertical .ui-slider { height: 250px; }
+
+      #size1-h, #size1-v { font-size: 8pt; }
+      #size2-h, #size2-v { font-size: 12pt; }
+      #size3-h, #size3-v { font-size: 16pt; }
+    </style>
   </head>
 
 
@@ -67,7 +87,10 @@
               <div class="slider-title">Frequency</div>
               <div class="slider-freq">medium</div>
             </div>
-      
+                   <!-- <div class="wrapper-tick horizontal"> -->
+                <div id="size1-h"></div>
+
+                <!-- </div> -->
           </div>
 
                   <div class="horizontal"></div>
