@@ -334,7 +334,7 @@ article.mainfeature {
   .task { margin: 0;}
 
 }
-@media all and (max-width: 1001px) and (min-width: 651px) {
+@media all and (min-width: 651px) {
   #submit { float: right; }
 }/* green */
 
