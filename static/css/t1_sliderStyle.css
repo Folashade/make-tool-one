@@ -38,7 +38,7 @@ html, body {
   background-color: #222;
   font-family: 'Roboto Slab';
   font-weight: 400;
-  color: transparent;
+  color: #aaa;
   overflow-x: hidden;
   font-size: 12px;
   /*text-shadow: none;*/
