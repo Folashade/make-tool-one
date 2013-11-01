@@ -25,7 +25,7 @@ $( document ).ready(function() {
 
   $(".slider").slider({
     orientation: "horizontal",
-    range: "min",
+    // range: "min",
     max: 100,
     value: 0,
     animate: 1300,

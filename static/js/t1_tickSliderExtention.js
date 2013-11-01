@@ -40,7 +40,12 @@
       options: {
          tickInterval: 0,
          tweenLabels: true,
-         tickLabels: null
+         tickLabels: null,
+         // range: true,
+         'step': 10,
+         value: 20,
+         animate: 1300,
+         orientation: "horizontal"
       },
 
       uiSlider: null,
@@ -92,7 +97,7 @@
          for (;i<=cnt;i++) {
             $('<div>').addClass( 'ui-slider-label-ticks' )
                .css( dir, (Math.round( i / cnt * 10000 ) / 100) + '%' )
-               .html( '<span>'+( labels[i*inr+min] ? labels[i*inr+min] : (this.options.tweenLabels ? i*inr+min : '') )+'</span>' )
+               .html( '<span>'+( labels[i*inr+min] ? labels[i*inr+min] : (this.options.tweenLabels ? i*inr+min : 'ds') )+'</span>' )
                .appendTo( $lbl );
          }
 
@@ -142,5 +147,6 @@
        }
 
    });
+
 
 }(jQuery));
