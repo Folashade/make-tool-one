@@ -1,0 +1,42 @@
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+
+     <!-- <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,400,300' rel='stylesheet' type='text/css' /> -->
+     <link rel="stylesheet" type="text/css" href='css/reset.css'>
+     <link rel="stylesheet" type="text/css" href='css/mtStyle.css'>
+     <link rel="shortcut icon" href="img/favicon.ico">
+
+     <title>Tasks &amp; Tools</title>
+
+     <!-- // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+     <!-- // <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script> -->
+    <script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jquery-ui.min.js"></script>
+   
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+     // <script language="javascript" type="text/javascript" src="js/sliderTouch.js"></script>
+     <script language="javascript" type="text/javascript" src="js/submitScript.js"></script>
+
+
+  </head>
+
+  <body>
+    <br><br><br>
+		<div class="slider">
+		  <label id="slider-label" class="slider-label isRight"></label>
+		  <input id="slider-input" class="slider-input" type="range" min="0" value="0" max="100">
+		</div>
+
+<br><br>
+
+		            <div class="slider white">
+            </div>
+
+
+  </body>
+  <script>
+    $('.slider.white').touchDraggable();
+  </script>
+</html>

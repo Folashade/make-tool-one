@@ -109,3 +109,7 @@ https://devcenter.heroku.com/articles/heroku-postgresql
 
 
 heroku pg:promote HEROKU_POSTGRESQL_COBALT_URL
+
+
+## Dev -
+	Slider Binding: http://touchpunch.furf.com/#
