@@ -27,6 +27,8 @@ Version of app presented in class.Has the updated task titles and color scheme.
 							{(JSON:OBject)} ');
 							
 	
+####  Tadpoll 
+- psql "dbname=d2d1mma7140cav host=ec2-54-225-102-116.compute-1.amazonaws.com user=mpeyvkpeoywcaj password=mQB_kCBkTaZCP-ct0OhCNl3zBO port=5432 sslmode=require"
 
 
 ## Process

@@ -42,10 +42,27 @@
          tweenLabels: true,
          tickLabels: null,
          // range: true,
-         'step': 10,
+         'step': 20,
          value: 20,
-         animate: 1300,
-         orientation: "horizontal"
+         animate: 900,
+         orientation: "horizontal", 
+         change: function(e,ui){
+            var tickValue = $(this).labeledslider("value");
+            console.log(tickValue);
+
+            switch (tickValue) {
+              // Check for Frequency Case
+              case (0):
+                console.log("yearly");
+                $($(this).parent().html()).find("span").css('color', 'red');
+                console.log($($(this).parent().html()).find("span").css('color', 'red'));
+                break;
+              case (20):
+                console.log("monthly");
+               // $(this).children()[1].innerText = "monthly";
+                break;
+            }
+         }
       },
 
       uiSlider: null,
@@ -94,10 +111,16 @@
 
          $lbl.html('');
 
+         // var tickLabelCustom = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+         var tickLabelCustom = ["yearly", "monthly", "weekly", "bi-weekly", "daily", "hourly"];
+
+
          for (;i<=cnt;i++) {
             $('<div>').addClass( 'ui-slider-label-ticks' )
                .css( dir, (Math.round( i / cnt * 10000 ) / 100) + '%' )
-               .html( '<span>'+( labels[i*inr+min] ? labels[i*inr+min] : (this.options.tweenLabels ? i*inr+min : 'ds') )+'</span>' )
+               // .html( '<span>'+( labels[i*inr+min] ? labels[i*inr+min] : (this.options.tweenLabels ? i*inr+min : 'ds') )+'</span>' )
+               .html( '<span class="tickValueText">'+( tickLabelCustom[i] )+'</span>' )
+
                .appendTo( $lbl );
          }
 
@@ -146,7 +169,22 @@
           return this.uiSlider;
        }
 
+
+
    });
 
+       // function(e,ui){
+       //    // Do something with ui.value
+       //    /* console.log(ui.handle.previousSibling.previousElementSibling.innerText); */
+       //    /* ui.handle.previousSibling.previousElementSibling.innerText = "CHANGED i sondee"; */
+       //    // var newVal = ui.handle.previousSibling.previousElementSibling.innerText;
+       //    // $(this).slider("value", 20);
+
+       //    // var val = $(this).slider("value");
+          
+       //    // $($(this).children()[1]).animate({ opacity: 0});
+       //    // var CN = $(this).children()[1].className;
+       //    console.log("changed ticks");
+       //    }
 
 }(jQuery));

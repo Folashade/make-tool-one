@@ -22,20 +22,16 @@
 
     <script>
      $(function() {
-        $('#size1-h').labeledslider({ tickInterval: 10 });
+        $('#size1-h').labeledslider({ tickInterval: 0 });
+
+        console.log($('#size1-h')[0].childNodes);
       });
     </script>
 
     <style>
-      body { font-family: sans-serif,arial; }
       .wrapper-tick.horizontal { width: 400px; margin: auto; }
-      .wrapper-tick.vertical { position: relative; width: 400px; height: 250px; margin: auto; }
-      .wrapper-tick.vertical > div { position: absolute; top: 0; }
-      .wrapper-tick.vertical .ui-slider { height: 250px; }
 
       #size1-h, #size1-v { font-size: 8pt; }
-      #size2-h, #size2-v { font-size: 12pt; }
-      #size3-h, #size3-v { font-size: 16pt; }
     </style>
   </head>
 

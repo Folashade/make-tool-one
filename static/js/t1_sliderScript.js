@@ -28,7 +28,7 @@ $( document ).ready(function() {
     // range: "min",
     max: 100,
     value: 0,
-    animate: 1300,
+    animate: 900,
     change: function(e,ui){
         // Do something with ui.value
         /* console.log(ui.handle.previousSibling.previousElementSibling.innerText); */
@@ -38,16 +38,20 @@ $( document ).ready(function() {
         
       $($(this).children()[1]).animate({ opacity: 0});
       var CN = $(this).children()[1].className;
+
+      /************ OLD SWITCH ************
+
       switch (true) {
         // Check for Frequency Case
         case (val>70 && CN === 'slider-freq'):
           x="Today it's 70";
          $(this).children()[1].innerText = "yearly";
-          /* $(this).children(2)[1].innerText = "10"; */
+          // $(this).children(2)[1].innerText = "10"; 
             break;
         case (val>64 && CN === 'slider-freq'):
           x="Today it's 64";
          $(this).children()[1].innerText = "monthly";
+         console.log('monthly');
           break;
          case (val>48 && CN === 'slider-freq'):
           x="Today it's 48";
@@ -67,6 +71,41 @@ $( document ).ready(function() {
           $(this).children()[1].innerText = "hourly";
           break;
 
+      ************ OLD SWITCH ************/
+
+
+        /************ NEW SWITCH ************/
+        switch (val) {
+        // Check for Frequency Case
+        case (0):
+          console.log("yearly");
+         $(this).children()[1].innerText = "yearly";
+            break;
+        case (16.5):
+          console.log("monthly");
+         $(this).children()[1].innerText = "monthly";
+         console.log('monthly');
+          break;
+         case (val>48 && CN === 'slider-freq'):
+          x="Today it's 48";
+          $(this).children()[1].innerText = "weekly";
+          break;
+        case (val>32 && CN === 'slider-freq'):
+          x="Today it's 32";
+         
+          $(this).children()[1].innerText = "bi-weekly";
+          break;
+       case (val>16 && CN === 'slider-freq'):
+          x="Today it's 16";
+          $(this).children()[1].innerText = "daily";
+          break;
+        case (val>0 && CN === 'slider-freq'):
+          x="Today it's 0";
+          $(this).children()[1].innerText = "hourly";
+          break;
+
+      //   //   //   //   //   //    //   //   //   //   //   //    //
+      
       //["yearly", "monthly", "weekly", "bi-weekly", "daily", "hourly"]
           
       // If not any Freq, must be Relevancy  
