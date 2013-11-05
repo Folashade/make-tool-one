@@ -207,8 +207,13 @@ $( document ).ready(function() {
           Document Set Up
   /*****************************/
       // var t = $('.slider.blue'); // an array, should i be doing .each?
-      $('.slider.blue').touchDraggable();
-      // console.log(t);
+
+
+      /***** IMPORTANT!!!!!!!!
+      DONT LOAD THE TOUCH DRAGGABLE UNLESS ON MOBILE!!!!! 
+      ***/
+
+      // $('.slider.blue').touchDraggable();
 
 
 }); /* END OF: document.ready */

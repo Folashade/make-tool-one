@@ -21,6 +21,7 @@
      <script src="js/jquery.ui.touch-punch.min.js"></script>
 
      <script language="javascript" type="text/javascript" src="js/t2_sliderScript.js"></script>
+     <script language="javascript" type="text/javascript" src="js/backend.js"></script>
      <script language="javascript" type="text/javascript" src="js/submitScript.js"></script>
   </head>
 
@@ -40,6 +41,23 @@
             Rate the relevance of these <span style="font-weight:400">12</span> tasks.
           </p>
         </div>
+
+
+        <form name="myform" action="javascript:addListing()">
+          <div class="row">
+            <label>Author:</label>  <input id="author-input" name="Author" type="text" placeholder="Harold"/> 
+          </div>
+          <div class="row">
+            <label>Description:</label>  <input id="desc-input" name="Desc" type="text" placeholder="A blue car..."/>
+          </div>
+          <div class="row">
+            <label>Price:</label>  <input id="price-input" name="Price" type="text" placeholder="3133.70"/>
+          </div>
+          <div class="row right">
+            <input id="submitButton" name="Submit"  type="submit" value="Add Listing"/>
+          </div>
+        </form>
+
 
         <div class="task">
           <div class="taskname">Remote Meetings</div>
