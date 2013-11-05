@@ -10,10 +10,10 @@ input[type=radio], input[type=checkbox] {
 
 input[type=radio] + label, input[type=checkbox] + label {
 		display:inline-block;
-		margin:-2px;
+		margin: 2px;
 		padding: 4px 12px;
 		margin-bottom: 0;
-		font-size: 12px;
+		font-size: 14px;
 		line-height: 6px;
 		color: #bbb;
 		text-align: center;
@@ -68,6 +68,10 @@ input[type=radio] + label, input[type=checkbox] + label {
 	}
 
 	#radioWrapper {
-		width: 200px;
+		/*width: 200px;*/
 		display: inline-block;
+		/*width: 100%;*/
+		/*position: fixed;*/
+		width: 100%;
+		max-width: 270px;
 	}

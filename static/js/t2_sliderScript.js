@@ -36,42 +36,42 @@ $( document ).ready(function() {
     value: 0,
     animate: 1300,
     change: function(e,ui){
-        // Do something with ui.value
-        /* console.log(ui.handle.previousSibling.previousElementSibling.innerText); */
-        /* ui.handle.previousSibling.previousElementSibling.innerText = "CHANGED i sondee"; */
-       var newVal = ui.handle.previousSibling.previousElementSibling.innerText;
+      //   // Do something with ui.value
+      //   /* console.log(ui.handle.previousSibling.previousElementSibling.innerText); */
+      //   /* ui.handle.previousSibling.previousElementSibling.innerText = "CHANGED i sondee"; */
+      //  var newVal = ui.handle.previousSibling.previousElementSibling.innerText;
           var val = $(this).slider("value");
         
-      $($(this).children()[1]).animate({ opacity: 0});
-      var CN = $(this).children()[1].className;
+      // $($(this).children()[1]).animate({ opacity: 0});
+      // var CN = $(this).children()[1].className;
       switch (true) {
-        // Check for Frequency Case
-        case (val>70 && CN === 'slider-freq'):
-          x="Today it's 70";
-         $(this).children()[1].innerText = "yearly";
-          /* $(this).children(2)[1].innerText = "10"; */
-            break;
-        case (val>64 && CN === 'slider-freq'):
-          x="Today it's 64";
-         $(this).children()[1].innerText = "monthly";
-          break;
-         case (val>48 && CN === 'slider-freq'):
-          x="Today it's 48";
-          $(this).children()[1].innerText = "weekly";
-          break;
-        case (val>32 && CN === 'slider-freq'):
-          x="Today it's 32";
+      //   // Check for Frequency Case
+      //   case (val>70 && CN === 'slider-freq'):
+      //     x="Today it's 70";
+      //    $(this).children()[1].innerText = "yearly";
+      //     /* $(this).children(2)[1].innerText = "10"; */
+      //       break;
+      //   case (val>64 && CN === 'slider-freq'):
+      //     x="Today it's 64";
+      //    $(this).children()[1].innerText = "monthly";
+      //     break;
+      //    case (val>48 && CN === 'slider-freq'):
+      //     x="Today it's 48";
+      //     $(this).children()[1].innerText = "weekly";
+      //     break;
+      //   case (val>32 && CN === 'slider-freq'):
+      //     x="Today it's 32";
          
-          $(this).children()[1].innerText = "bi-weekly";
-          break;
-       case (val>16 && CN === 'slider-freq'):
-          x="Today it's 16";
-          $(this).children()[1].innerText = "daily";
-          break;
-        case (val>0 && CN === 'slider-freq'):
-          x="Today it's 0";
-          $(this).children()[1].innerText = "hourly";
-          break;
+      //     $(this).children()[1].innerText = "bi-weekly";
+      //     break;
+      //  case (val>16 && CN === 'slider-freq'):
+      //     x="Today it's 16";
+      //     $(this).children()[1].innerText = "daily";
+      //     break;
+      //   case (val>0 && CN === 'slider-freq'):
+      //     x="Today it's 0";
+      //     $(this).children()[1].innerText = "hourly";
+      //     break;
 
       //["yearly", "monthly", "weekly", "bi-weekly", "daily", "hourly"]
           
@@ -206,7 +206,7 @@ $( document ).ready(function() {
   /*************************
           Document Set Up
   /*****************************/
-      // var t = $('.slider.blue');
+      // var t = $('.slider.blue'); // an array, should i be doing .each?
       $('.slider.blue').touchDraggable();
       // console.log(t);
 

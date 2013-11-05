@@ -111,5 +111,22 @@ https://devcenter.heroku.com/articles/heroku-postgresql
 heroku pg:promote HEROKU_POSTGRESQL_COBALT_URL
 
 
-## Dev -
+#### Dev -
 	Slider Binding: http://touchpunch.furf.com/#
+
+
+
+#### User cannot select text
+	http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting
+
+
+	-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+
+#### take off Glow
+input:focus { outline: none; }
+
