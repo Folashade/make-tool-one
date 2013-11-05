@@ -198,4 +198,14 @@ $( document ).ready(function() {
     // alert(""); 
   ***/
 
+
+
+
+
+  /*************************
+          Document Set Up
+  /*****************************/
+  $('.slider').touchDraggable();
+
+
 }); /* END OF: document.ready */
