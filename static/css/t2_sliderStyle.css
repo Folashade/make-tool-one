@@ -30,11 +30,6 @@
 
 
 
-.slider.blue {
-    margin-bottom: 10px;
-
-}
-
 html, body {
   /*  background-color: #e6e6e6;*/
   background-color: #222;
@@ -67,18 +62,18 @@ article.mainfeature {
 
 .slider {
   position: relative;
-  /*  margin: 5px auto;
-  */
+  /*margin: 5px auto;*/
   /*width: 250px;*/
-      width: 95%;
-
+  width: 95%;
   display: inline-block;
   background: #565656;
   height: 7px;
   box-shadow: 0 1px 0px rgba(255, 255, 255, 0.25), inset 0 0 4px rgba(0, 0, 0, 0.9);
   border-radius: 7px;
-      -webkit-transition: width 1s ease-in;
-  transition: width 1s ease-in;
+  margin-bottom: 10px;
+
+  -webkit-transition: width 1s ease-in;
+          transition: width 1s ease-in;
 }
 .slider div.ui-slider-range {
   display: block;
@@ -175,7 +170,7 @@ article.mainfeature {
   font-size: 23px;
   -webkit-transition: width 1s ease-in;
   transition: width 1s ease-in;
-  color: #fff;
+  color: #dedede;
 }
 
 .slidebars {
@@ -248,6 +243,7 @@ article.mainfeature {
   top: -.7em;
   font-size: 12px;
   /*font-weight: 100;*/
+  color: #aaa;
 }
 
 .slider-freq {
