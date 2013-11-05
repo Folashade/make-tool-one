@@ -1,4 +1,17 @@
+html, body {
+  /*  background-color: #e6e6e6;*/
+  background-color: #222;
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+  color: transparent;
+  overflow-x: hidden;
+  font-size: 12px;
+  /*text-shadow: none;*/
+          overflow: hidden;
+        overflow-y: auto;
+        width: 100%;
 
+}
 
 @font-face {
   font-family: 'Roboto Slab';
@@ -27,20 +40,6 @@
   src: url(../fonts/RobotoSlab-Bold.ttf);
 }
 
-
-
-
-html, body {
-  /*  background-color: #e6e6e6;*/
-  background-color: #222;
-  font-family: 'Roboto Slab';
-  font-weight: 400;
-  color: transparent;
-  overflow-x: hidden;
-  font-size: 12px;
-  /*text-shadow: none;*/
-
-}
 
 h2 {
     /*text-shadow: 3px 3px 1px #fff;*/

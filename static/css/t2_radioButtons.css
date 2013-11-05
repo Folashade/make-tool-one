@@ -63,7 +63,11 @@ input[type=radio] + label, input[type=checkbox] + label {
         -webkit-transform: translateZ(0);
 	}
 
-
 	.ui-widget-content {
 		border: none;
+	}
+
+	#radioWrapper {
+		width: 200px;
+		display: inline-block;
 	}

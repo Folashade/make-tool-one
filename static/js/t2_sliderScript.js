@@ -206,9 +206,9 @@ $( document ).ready(function() {
   /*************************
           Document Set Up
   /*****************************/
-      var t = $('.slider.blue');
-      // $('.slider.blue').touchDraggable();
-      console.log(t);
+      // var t = $('.slider.blue');
+      $('.slider.blue').touchDraggable();
+      // console.log(t);
 
 
 }); /* END OF: document.ready */
