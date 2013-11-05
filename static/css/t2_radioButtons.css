@@ -5,6 +5,7 @@ input[type=radio], input[type=checkbox] {
     -o-transition: all 0.3s ease;   
     -ms-transition: all 0.3s ease;          
     transition: all 0.3s ease;
+    -webkit-transform: translateZ(0);
 }
 
 input[type=radio] + label, input[type=checkbox] + label {
@@ -41,6 +42,7 @@ input[type=radio] + label, input[type=checkbox] + label {
     -o-transition: all 0.3s ease;   
     -ms-transition: all 0.3s ease;          
     transition: all 0.3s ease;
+        -webkit-transform: translateZ(0);
 }
 
 	input[type=radio]:checked + label, input[type=checkbox]:checked + label{
@@ -58,6 +60,7 @@ input[type=radio] + label, input[type=checkbox] + label {
     -o-transition: all 0.3s ease;   
     -ms-transition: all 0.3s ease;          
     transition: all 0.3s ease;
+        -webkit-transform: translateZ(0);
 	}
 
 

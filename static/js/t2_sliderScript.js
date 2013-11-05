@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 
+
   var string = "-- restart --";
   console.log(string);
 
@@ -205,7 +206,9 @@ $( document ).ready(function() {
   /*************************
           Document Set Up
   /*****************************/
-  $('.slider').touchDraggable();
+      var t = $('.slider.blue');
+      // $('.slider.blue').touchDraggable();
+      console.log(t);
 
 
 }); /* END OF: document.ready */
