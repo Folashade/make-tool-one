@@ -40,10 +40,17 @@
 		
 
 		// -- new for maketool --
+
+		var mt_sliderValues = $('.slider');
+		print("mt_sliderValues  : ");
+		print(mt_sliderValues.join());
+
+		// window.add(di, ai, pi);
+
 		// ----------------------
 		
 		refreshDOM();
-		
+
 		// Clear Inputs
 		$('#author-input').val("");
 		$('#desc-input').val("");
