@@ -310,7 +310,7 @@ article.mainfeature {
 .btn {
   border: none;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 15px;
   color: inherit;
   background: none;
   cursor: pointer;
