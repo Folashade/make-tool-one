@@ -23,7 +23,7 @@ var pg = require('pg');
 
 
 /** // FOR LOCAL SERVER  // **/
-var conString = "postgres://FOkunubi:folashade@localhost/cobalt";
+var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
 var client = new pg.Client(conString);
 client.connect();
 
@@ -100,15 +100,17 @@ app.post("/listings", function(request, response) {
               "price": Number(request.body.price),
               "sold": false };
 
-              {id: 0, taskname: "Remote Meetings", section: "Relevancy", stat: "70", freq: "70"}
+              // {id: 0, taskname: "Remote Meetings", section: "Relevancy", stat: "70", freq: "70"}
  
   var successful = 
       (item.desc !== undefined) &&
       (item.author !== undefined) &&
       (item.price !== undefined);
 
+  console.log("successful : " + successful);
+
   if (successful) {
-    console.log(" _____ SUCCESSFULLL ________ ")
+    console.log(" ________ SUCCESSFULLL ________ ");
     listings.push(item);
 	// client.query(
 		
@@ -192,6 +194,9 @@ function initServer() {
   // When we start the server, we must load the stored data
   var defaultList = "[]";
   readFile("data.txt", defaultList, function(err, data) {
+    listings = JSON.parse(data);
+  });
+  readFile("dataInput.txt", defaultList, function(err, data) {
     listings = JSON.parse(data);
   });
 }
