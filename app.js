@@ -106,6 +106,7 @@ app.post("/listings", function(request, response) {
       (item.price !== undefined);
 
   if (successful) {
+    console.log(" _____ SUCCESSFULLL ________ ")
     listings.push(item);
 	// client.query(
 		
