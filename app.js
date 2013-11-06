@@ -94,29 +94,34 @@ app.get("/listings/:id", function(request, response){
 // create new item
 app.post("/listings", function(request, response) {
   console.log(request.body);
-  var item = {"desc": request.body.desc,
-              "author": request.body.author,
-              "date": new Date(),
-              "price": Number(request.body.price),
-              "sold": false };
+  var item = { "id": request.body.desc,
+               "taskname": request.body.taskname,
+               "section": request.body.section
+               "stat": request.body.stat,
+               "freq": request.body.freq
+               "date": new Date() };
 
-              // {id: 0, taskname: "Remote Meetings", section: "Relevancy", stat: "70", freq: "70"}
  
-  var successful = 
-      (item.desc !== undefined) &&
-      (item.author !== undefined) &&
-      (item.price !== undefined);
+  var successful =
+      (item !== undefined) &&
+      (item.date !== undefined) &&
+      (item.taskname !== undefined);
 
   console.log("successful : " + successful);
 
   if (successful) {
-    console.log(" ________ SUCCESSFULLL ________ ");
     listings.push(item);
-	// client.query(
+
+    console.log(" ________ SUCCESSFULLL PUSH ________ ");
+
 		
 	// INSERT INTO surveys VALUES (item.author, Math.floor(), item.desc);
-	  var price_int = Math.floor(item.price);
-	  client.query('INSERT INTO surveys VALUES ($1, $2, $3)',[item.author, price_int, item.desc]);
+	  // var price_int = Math.floor(item.price);
+	  // client.query('INSERT INTO surveys VALUES ($1, $2, $3)',[item.author, price_int, item.desc]);
+
+    client.query('INSERT INTO surveys VALUES ($1, $2, $3, $4, $5, $6)',
+      [item.id, item.taskname, item.section, item.stat, item.freq, item.date]);
+
 	
 	  console.log(' ----- inputted into db ----- ');
 	  /** Query the DB **/
@@ -126,7 +131,7 @@ app.post("/listings", function(request, response) {
 	  });
 
 	
-    writeFile("data.txt", JSON.stringify(listings));
+    writeFile("dataInput.txt", JSON.stringify(listings));
   } else {
     item = undefined;
   }
@@ -142,19 +147,23 @@ app.put("/listings/:id", function(request, response){
   // change listing at index, to the new listing
   var id = request.params.id;
   var oldItem = listings[id];
-  var item = { "desc": request.body.desc,
-               "author": request.body.author,
-               "date": new Date(),
-               "price": request.body.price,
-               "sold": request.body.sold };
-  item.desc = (item.desc !== undefined) ? item.desc : oldItem.desc;
-  item.author = (item.author !== undefined) ? item.author : oldItem.author;
-  item.price = (item.price !== undefined) ? item.price : oldItem.price;
-  item.sold = (item.sold !== undefined) ? JSON.parse(item.sold) : oldItem.sold;
+  var item = { "id": request.body.desc,
+               "taskname": request.body.taskname,
+               "section": request.body.section
+               "stat": request.body.stat,
+               "freq": request.body.freq
+               "date": new Date() };
+
+  item.id = (item.desc !== undefined) ? item.desc : oldItem.desc;
+  item.taskname = (item.taskname !== undefined) ? item.taskname : oldItem.taskname;
+  item.section = (item.section !== undefined) ? item.section : oldItem.section;
+  item.stat = (item.stat !== undefined) ? item.stat : oldItem.stat;
+  item.freq = (item.freq !== undefined) ? item.freq : oldItem.freq;
+  item.date = (item.date !== undefined) ? item.date : oldItem.date;
 
   // commit the update
   listings[id] = item;
-  writeFile("data.txt", JSON.stringify(listings));
+  writeFile("dataInput.txt", JSON.stringify(listings));
 
   response.send({
     item: item,
@@ -165,7 +174,7 @@ app.put("/listings/:id", function(request, response){
 // delete entire list
 app.delete("/listings", function(request, response){
   listings = [];
-  writeFile("data.txt", JSON.stringify(listings));
+  writeFile("dataInput.txt", JSON.stringify(listings));
   response.send({
     listings: listings,
     success: true
@@ -177,7 +186,7 @@ app.delete("/listings/:id", function(request, response){
   var id = request.params.id;
   var old = listings[id];
   listings.splice(id, 1);
-  writeFile("data.txt", JSON.stringify(listings));
+  writeFile("dataInput.txt", JSON.stringify(listings));
   response.send({
     listings: old,
     success: (old !== undefined)
@@ -193,9 +202,6 @@ app.get("/static/:staticFilename", function (request, response) {
 function initServer() {
   // When we start the server, we must load the stored data
   var defaultList = "[]";
-  readFile("data.txt", defaultList, function(err, data) {
-    listings = JSON.parse(data);
-  });
   readFile("dataInput.txt", defaultList, function(err, data) {
     listings = JSON.parse(data);
   });

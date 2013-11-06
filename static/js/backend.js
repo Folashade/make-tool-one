@@ -21,22 +21,22 @@
 
   // Implement addListing()
   function addListing(){
-		var newListing = {};
+		// var newListing = {};
 		
-		console.log("hello");	
-		var ai = $('#author-input').val();
-		var di = $('#desc-input').val();
-		var pi = $('#price-input').val();
+		// console.log("hello");	
+		// var ai = $('#author-input').val();
+		// var di = $('#desc-input').val();
+		// var pi = $('#price-input').val();
 		
-		newListing.author = ai;
-		newListing.desc = di;
-		newListing.price = pi;
-		newListing.date = new Date();
+		// newListing.author = ai;
+		// newListing.desc = di;
+		// newListing.price = pi;
+		// newListing.date = new Date();
 
-		print(newListing);
+		// print(newListing);
 		
-		listings.push(newListing);
-		window.add(di, ai, pi);
+		// listings.push(newListing);
+		// window.add(di, ai, pi);
 		
 
 		// -- new for maketool --
@@ -74,9 +74,12 @@
 
 
 			mt_sliderValues_text.push(sl_task)
+			listings.push(sl_task);
+			window.add(id, taskname, stat, freq, date)
 		})
 
 		print (mt_sliderValues_text);
+		// listings.push(newListing);
 
 
 		// ----------------------
@@ -84,9 +87,9 @@
 		refreshDOM();
 
 		// Clear Inputs
-		$('#author-input').val("");
-		$('#desc-input').val("");
-		$('#price-input').val("");
+			// $('#author-input').val("");
+			// $('#desc-input').val("");
+			// $('#price-input').val("");
   }
  
 
@@ -160,10 +163,10 @@
   }
 
   // Implement the add(desc, author, price) function
-  function add(desc, author, price) {
+  function add(id, taskname, stat, freq, date) {
     $.ajax({
       type: "post",
-      data: {"desc": desc, "author": author, "price": price},
+      data: {"id": id, "taskname": taskname, "stat": stat, "freq": freq, "date": date},
       url: "/listings",
       success: function(data) { }
     });
@@ -172,7 +175,7 @@
   function edit(id, desc, author, price, sold) {
     $.ajax({
       type: "put",
-      data: {desc: desc, author: author, price: price, sold: sold},
+      data: {"id": id, "taskname": taskname, "stat": stat, "freq": freq, "date": date},
       url: "/listings/" + id,
       success: function(data) { }
     });
