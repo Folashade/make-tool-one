@@ -94,11 +94,11 @@ app.get("/listings/:id", function(request, response){
 // create new item
 app.post("/listings", function(request, response) {
   console.log(request.body);
-  var item = { "id": request.body.desc,
+  var item = { "id": request.body.id,
                "taskname": request.body.taskname,
-               "section": request.body.section
+               "section": request.body.section,
                "stat": request.body.stat,
-               "freq": request.body.freq
+               "freq": request.body.freq,
                "date": new Date() };
 
  
@@ -147,11 +147,11 @@ app.put("/listings/:id", function(request, response){
   // change listing at index, to the new listing
   var id = request.params.id;
   var oldItem = listings[id];
-  var item = { "id": request.body.desc,
+  var item = { "id": request.body.id,
                "taskname": request.body.taskname,
-               "section": request.body.section
+               "section": request.body.section,
                "stat": request.body.stat,
-               "freq": request.body.freq
+               "freq": request.body.freq,
                "date": new Date() };
 
   item.id = (item.desc !== undefined) ? item.desc : oldItem.desc;
@@ -196,6 +196,7 @@ app.delete("/listings/:id", function(request, response){
 // This is for serving files in the static directory
 app.get("/static/:staticFilename", function (request, response) {
     response.sendfile("static/" + request.params.staticFilename);
+    // console.log(listings);
 });
 
 

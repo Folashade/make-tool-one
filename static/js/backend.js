@@ -14,8 +14,8 @@
 
   // Global datastore
   var listings;
-  print (listings);
-  print ("listings");
+  // print (listings);
+  // print ("listings");
 
 
 
@@ -57,7 +57,7 @@
 			var str = $(this).text();
 			var sl_id = id;
 			var sl_name = $(taskNameList[id]).text();
-			// var sl_section = str.match(regWord)[0];
+			var sl_section = str.match(regWord)[0];
 			var sl_stat = str.match(regNum)[0];
 			var sl_freq = str.match(regNum)[0];
 
@@ -67,7 +67,7 @@
 			var sl_task = new Object();
 			sl_task.id = sl_id;
 			sl_task.taskname = sl_name;
-			// sl_task.section = sl_section;
+			sl_task.section = sl_section;
 			sl_task.stat = sl_stat;
 			sl_task.freq = sl_freq;
 			sl_task.date = new Date();
@@ -75,7 +75,7 @@
 
 			mt_sliderValues_text.push(sl_task)
 			listings.push(sl_task);
-			window.add(id, taskname, stat, freq, date)
+			window.add(sl_task.id, sl_task.taskname, sl_task.sl_section, sl_task.stat, sl_task.freq, sl_task.date);
 		})
 
 		print (mt_sliderValues_text);
@@ -163,10 +163,10 @@
   }
 
   // Implement the add(desc, author, price) function
-  function add(id, taskname, stat, freq, date) {
+  function add(id, taskname, section, stat, freq, date) {
     $.ajax({
       type: "post",
-      data: {"id": id, "taskname": taskname, "stat": stat, "freq": freq, "date": date},
+      data: {"id": id, "taskname": taskname, "section": section, "stat": stat, "freq": freq, "date": date},
       url: "/listings",
       success: function(data) { }
     });
@@ -175,7 +175,7 @@
   function edit(id, desc, author, price, sold) {
     $.ajax({
       type: "put",
-      data: {"id": id, "taskname": taskname, "stat": stat, "freq": freq, "date": date},
+      data: {"id": id, "taskname": taskname,"section": section,  "stat": stat, "freq": freq, "date": date},
       url: "/listings/" + id,
       success: function(data) { }
     });
