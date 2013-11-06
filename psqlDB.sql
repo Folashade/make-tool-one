@@ -1,3 +1,11 @@
+
+    NEXT MAKE TOOL STRUCTURE 			  
+'================================='
+   ++ QUESTIONS ++ 
+-----------------------
+(id), user_fullname, user_role, taskname, stat, freq, survey_id, date
+
+
              TEST 			  --testDB
 '================================='
 
@@ -9,8 +17,9 @@ INSERT INTO test VALUES
     ('one', '2013-11-06T07:01:37.693Z');
 
 
-          DATA CREATION
+       ORIG DATA CREATION
 '================================='
+- - - - - - - - - - - - - - - - - - - - - - - - - - - < Q > 
 -- backend.js
 			... 
 	var sl_task = new Object();
@@ -43,6 +52,23 @@ CREATE TABLE surveys (
                "date": new Date() };
 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - < U > 
+-- psql input in terminal
+
+CREATE TABLE users (
+    id smallint,
+    fullname varchar(100),
+    role varchar(80)
+);
+
+CREATE TABLE surveys (
+    user_id smallint,
+    taskname varchar(80),
+    section varchar(100),
+    stat integer,
+    freq integer,
+    date timestamp with time zone
+);
             DATA OUTPUT
 '================================='
 -- dataInput.txt
@@ -50,3 +76,17 @@ CREATE TABLE surveys (
  "stat": "42", "freq": "100", "date":"2013-11-05T20:10:07.170Z"}]
 
 
+
+    POSSIBLE MAKE TOOL MINI-ERD 			  
+'================================='
+   ++ QUESTIONS ++ 
+-----------------------
+(id), taskname, user_id, stat, freq 
+
+     ++ USERS ++ 
+-----------------------
+(id), fullname, role
+
+    ++ SURVEYS ++ 
+-----------------------
+user_id, survey_id, date
