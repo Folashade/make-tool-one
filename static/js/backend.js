@@ -57,16 +57,20 @@
 			var str = $(this).text();
 			var sl_id = id;
 			var sl_name = $(taskNameList[id]).text();
-			var sl_section = str.match(regWord)[0];
-			var sl_amount = str.match(regNum)[0];
+			// var sl_section = str.match(regWord)[0];
+			var sl_stat = str.match(regNum)[0];
+			var sl_freq = str.match(regNum)[0];
+
 
 
 			// obj name = task, type = slider title , amount = stat or freq
 			var sl_task = new Object();
 			sl_task.id = sl_id;
 			sl_task.taskname = sl_name;
-			sl_task.section = sl_section;
-			sl_task.amount = sl_amount;
+			// sl_task.section = sl_section;
+			sl_task.stat = sl_stat;
+			sl_task.freq = sl_freq;
+			sl_task.date = new Date();
 
 
 			mt_sliderValues_text.push(sl_task)

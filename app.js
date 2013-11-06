@@ -99,6 +99,8 @@ app.post("/listings", function(request, response) {
               "date": new Date(),
               "price": Number(request.body.price),
               "sold": false };
+
+              {id: 0, taskname: "Remote Meetings", section: "Relevancy", stat: "70", freq: "70"}
  
   var successful = 
       (item.desc !== undefined) &&
