@@ -128,7 +128,13 @@ app.post("/listings", function(request, response) {
     client.query('INSERT INTO surveys VALUES ($1, $2, $3, $4, $5)',
       [item.survey_id, item.user_fullname, item.user_role, task_list_text, psql_date]);
 
-	
+	  for (var i=0; i < item.task_list.length; i++){
+      console.log('LOOP: --- > adding tasks');
+      var task = item.task_list[i];
+      client.query('INSERT INTO tasks VALUES ($1, $2, $3, $4, $5)',
+        [task.id, task.taskname, task.stat, task.freq, task.survey_id]);    
+    }
+
 	  console.log(' ----- inputted into db ----- ');
 	   // Query the DB 
 	  var query = client.query('SELECT * FROM surveys');
