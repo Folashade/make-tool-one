@@ -118,13 +118,15 @@ app.post("/listings", function(request, response) {
     console.log(" ________ SUCCESSFULLL PUSH ________ ");
 
 		
-	// INSERT INTO surveys VALUES (item.author, Math.floor(), item.desc);
+	 // INSERT INTO surveys VALUES (item.author, Math.floor(), item.desc);
 	  // var price_int = Math.floor(item.price);
 	  // client.query('INSERT INTO surveys VALUES ($1, $2, $3)',[item.author, price_int, item.desc]);
 
-    /********* PUT BACK
-    client.query('INSERT INTO surveys VALUES ($1, $2, $3, $4, $5, $6)',
-      [item.id, item.taskname, item.section, item.stat, item.freq, item.date]);
+    // SVID
+    var task_list_text = JSON.stringify(item.task_list);
+    var psql_date = new Date();
+    client.query('INSERT INTO surveys VALUES ($1, $2, $3, $4, $5)',
+      [item.survey_id, item.user_fullname, item.user_role, task_list_text, psql_date]);
 
 	
 	  console.log(' ----- inputted into db ----- ');
@@ -132,9 +134,10 @@ app.post("/listings", function(request, response) {
 	  var query = client.query('SELECT * FROM surveys');
 	  query.on('row', function(row) {
 	    console.log(JSON.stringify(row));
-      *********/
+    });
+      
 
-	  });
+	
 
 	
     writeFile("dataInput.txt", JSON.stringify(listings));
@@ -160,6 +163,7 @@ app.put("/listings/:id", function(request, response){
   console.log("---- REQ params POST ------");
   console.log(request.params);
 
+ // SVID
   var id = request.params.survey.id;
 
   var oldItem = listings[id];

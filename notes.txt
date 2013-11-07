@@ -48,6 +48,11 @@ INSERT INTO surveys VALUES
     ('FirstName LastName', 1, ' This is an example sentence. {(JSON:OBject)} ');
 
 ---------------------------------------------------------------------------------------------------
+DELETE TABLES 
+
+drop schema public cascade;  
+create schema public;
+---------------------------------------------------------------------------------------------------
 ALTER DATABASE name RENAME TO "make-tool-one";
 
 # 

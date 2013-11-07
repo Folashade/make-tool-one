@@ -70,6 +70,7 @@
 				// mt_sliderValues_array.push(sl_task)
 				listings.push(survey);
 				window.add(survey);
+				console.log(listings);
 				print("-------------------------------");
 				print(survey);
 				// window.add(sl_task.id, sl_task.taskname, sl_task.sl_section, sl_task.stat, sl_task.freq, sl_task.date);
@@ -161,20 +162,21 @@
 
   // Implement the add(desc, author, price) function
   // function add(id, taskname, section, stat, freq, date) {
+  	      // data: {"id": id, "taskname": taskname,"section": section,  "stat": stat, "freq": freq, "date": date},
+
   function add(survey){
     $.ajax({
       type: "post",
-      // data: {"id": id, "taskname": taskname, "section": section, "stat": stat, "freq": freq, "date": date},
-      data: survey;
+      data: {"survey": survey},
       url: "/listings",
       success: function(data) { }
     });
   }
 
-  function edit(id, desc, author, price, sold) {
+  function edit(survey) {
     $.ajax({
       type: "put",
-      data: {"id": id, "taskname": taskname,"section": section,  "stat": stat, "freq": freq, "date": date},
+      data: {"survey": survey},
       url: "/listings/" + id,
       success: function(data) { }
     });
