@@ -21,83 +21,61 @@
 
   // Implement addListing()
   function addListing(){
-		// var newListing = {};
-		
-		// console.log("hello");	
-		// var ai = $('#author-input').val();
-		// var di = $('#desc-input').val();
-		// var pi = $('#price-input').val();
-		
-		// newListing.author = ai;
-		// newListing.desc = di;
-		// newListing.price = pi;
-		// newListing.date = new Date();
+  	/* Get User Info */
+		var user_fullname = "Fake Name"; // $('#fullname_input').val()
+		var user_role = "Analyst"; // $$('#role_input').val()
 
-		// print(newListing);
-		
-		// listings.push(newListing);
-		// window.add(di, ai, pi);
-		
+		/* Create Survey */
+		var survey = new Object();
+		survey.survey_id = 999;
+		survey.user_fullname = user_fullname;
+		survey.user_role = user_role;
+		survey.task_list = new Array();
+		survey.date = new Date(); 
 
-		// -- new for maketool --
-
-		var mt_sliderValues = $('.slider');
-		print("mt_sliderValues  : ");
-		// print(mt_sliderValues.join());
-
+		/* Get (Survey) Task Responses */
+		var mt_sliderValuesFromDOM = $('.slider');
 		var taskNameList = $('.task .taskname');
 
 		// window.add(di, ai, pi);
-		var mt_sliderValues_text = [];
+		var mt_sliderValues_array = new Array();
 
-		$.each(mt_sliderValues, function(id){
-			var regWord = /\w+/; 
-			var regNum = /\d+/; 
+		$.each(mt_sliderValuesFromDOM, function(id){
+				var regExWord = /\w+/; 
+				var regExNum = /\d+/; 
 
-			var user_fullname = "Fake Name"; // $('#author-input').val()
-			var user_role = "Analyst";
-			var task_list = new Array();
+				/*** Data Rerieval from DOM ***/
+				var str = $(this).text();
+				var sl_id = id;
+				var sl_name = $(taskNameList[id]).text();
+				var sl_section = str.match(regExWord)[0];
+				var sl_stat = str.match(regExNum)[0];
+				var sl_freq = str.match(regExNum)[0];
 
-			var str = $(this).text();
-			var sl_id = id;
-			var sl_name = $(taskNameList[id]).text();
-			var sl_section = str.match(regWord)[0];
-			var sl_stat = str.match(regNum)[0];
-			var sl_freq = str.match(regNum)[0];
+				// obj name = task, type = slider title , amount = stat or freq
+				var sl_task = new Object();
+				sl_task.id = sl_id;
+				sl_task.taskname = sl_name;
+				sl_task.stat = sl_stat;
+				sl_task.freq = sl_freq;
+				sl_task.survey_id = survey.survey_id; // FOREIGN KEY 
+				
+				survey.task_list.push(sl_task);
 
-			{ "survey_id": id, 
-			  "user_fullname": user_fullname,
-			  "user_role": user_role,
-			  "task_list" : [{
-					"task_id": task_id, 
-					"taskname": taskname, 
-					"stat": stat, 
-					"freq": freq }]
-			  "date": date}
-
-			var survey = new Object();
-			survey.survey_id = 999;
-			survey.user_fullname = user_fullname;
-			survey.user_role = user_role;
-			survey.task_list = task_list;
-			survey.date = new Date(); 
-
-			// obj name = task, type = slider title , amount = stat or freq
-			var sl_task = new Object();
-			sl_task.id = sl_id;
-			sl_task.taskname = sl_name;
-			sl_task.section = sl_section;
-			sl_task.stat = sl_stat;
-			sl_task.freq = sl_freq;
-			// sl_task.date = new Date();
-
-
-			mt_sliderValues_text.push(sl_task)
-			listings.push(sl_task);
-			window.add(sl_task.id, sl_task.taskname, sl_task.sl_section, sl_task.stat, sl_task.freq, sl_task.date);
+				// mt_sliderValues_array.push(sl_task)
+				// listings.push(sl_task);
+				// window.add(sl_task.id, sl_task.taskname, sl_task.sl_section, sl_task.stat, sl_task.freq, sl_task.date);
 		})
 
-		print (mt_sliderValues_text);
+				// mt_sliderValues_array.push(sl_task)
+				listings.push(survey);
+				window.add(survey);
+				print("-------------------------------");
+				print(survey);
+				// window.add(sl_task.id, sl_task.taskname, sl_task.sl_section, sl_task.stat, sl_task.freq, sl_task.date);
+		
+
+		// print (mt_sliderValues_array);
 		// listings.push(newListing);
 
 
@@ -182,10 +160,12 @@
   }
 
   // Implement the add(desc, author, price) function
-  function add(id, taskname, section, stat, freq, date) {
+  // function add(id, taskname, section, stat, freq, date) {
+  function add(survey){
     $.ajax({
       type: "post",
-      data: {"id": id, "taskname": taskname, "section": section, "stat": stat, "freq": freq, "date": date},
+      // data: {"id": id, "taskname": taskname, "section": section, "stat": stat, "freq": freq, "date": date},
+      data: survey;
       url: "/listings",
       success: function(data) { }
     });

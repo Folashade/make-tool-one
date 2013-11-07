@@ -93,19 +93,22 @@ app.get("/listings/:id", function(request, response){
 
 // create new item
 app.post("/listings", function(request, response) {
-  console.log(request.body);
-  var item = { "id": request.body.id,
-               "taskname": request.body.taskname,
-               "section": request.body.section,
-               "stat": request.body.stat,
-               "freq": request.body.freq,
-               "date": new Date() };
+  // console.log(request.body);
+  console.log('-------- APP.POST: print item ___-____');
+  // var item = { "id": request.body.id,
+  //              "taskname": request.body.taskname,
+  //              "section": request.body.section,
+  //              "stat": request.body.stat,
+  //              "freq": request.body.freq,
+  //              "date": new Date() };
+  var item = request.body.survey;
+  console.log(item);
 
  
   var successful =
-      (item !== undefined) &&
-      (item.date !== undefined) &&
-      (item.taskname !== undefined);
+      (item !== undefined);
+      // (item.date !== undefined) &&
+      // (item.taskname !== undefined);
 
   console.log("successful : " + successful);
 
@@ -119,15 +122,18 @@ app.post("/listings", function(request, response) {
 	  // var price_int = Math.floor(item.price);
 	  // client.query('INSERT INTO surveys VALUES ($1, $2, $3)',[item.author, price_int, item.desc]);
 
+    /********* PUT BACK
     client.query('INSERT INTO surveys VALUES ($1, $2, $3, $4, $5, $6)',
       [item.id, item.taskname, item.section, item.stat, item.freq, item.date]);
 
 	
 	  console.log(' ----- inputted into db ----- ');
-	  /** Query the DB **/
+	   // Query the DB 
 	  var query = client.query('SELECT * FROM surveys');
 	  query.on('row', function(row) {
 	    console.log(JSON.stringify(row));
+      *********/
+
 	  });
 
 	
@@ -145,24 +151,32 @@ app.post("/listings", function(request, response) {
 // update one item
 app.put("/listings/:id", function(request, response){
   // change listing at index, to the new listing
-  var id = request.params.id;
-  var oldItem = listings[id];
-  var item = { "id": request.body.id,
-               "taskname": request.body.taskname,
-               "section": request.body.section,
-               "stat": request.body.stat,
-               "freq": request.body.freq,
-               "date": new Date() };
 
-  item.id = (item.desc !== undefined) ? item.desc : oldItem.desc;
-  item.taskname = (item.taskname !== undefined) ? item.taskname : oldItem.taskname;
-  item.section = (item.section !== undefined) ? item.section : oldItem.section;
-  item.stat = (item.stat !== undefined) ? item.stat : oldItem.stat;
-  item.freq = (item.freq !== undefined) ? item.freq : oldItem.freq;
-  item.date = (item.date !== undefined) ? item.date : oldItem.date;
+
+ 
+  var successful =
+      (item !== undefined);
+  // var id = request.params.id;
+  console.log("---- REQ params POST ------");
+  console.log(request.params);
+
+  var id = request.params.survey.id;
+
+  var oldItem = listings[id];
+  console.log('-------- APP.PUT: print item ___-____');
+  var item = request.body.survey;
+  console.log(item);
+
+  /*** PUT BACK **/
+  // item.id = (item.desc !== undefined) ? item.desc : oldItem.desc;
+  // item.taskname = (item.taskname !== undefined) ? item.taskname : oldItem.taskname;
+  // item.section = (item.section !== undefined) ? item.section : oldItem.section;
+  // item.stat = (item.stat !== undefined) ? item.stat : oldItem.stat;
+  // item.freq = (item.freq !== undefined) ? item.freq : oldItem.freq;
+  // item.date = (item.date !== undefined) ? item.date : oldItem.date;
 
   // commit the update
-  listings[id] = item;
+  listings[id] = survey;
   writeFile("dataInput.txt", JSON.stringify(listings));
 
   response.send({
