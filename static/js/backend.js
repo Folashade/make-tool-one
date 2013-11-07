@@ -54,6 +54,10 @@
 			var regWord = /\w+/; 
 			var regNum = /\d+/; 
 
+			var user_fullname = "Fake Name"; // $('#author-input').val()
+			var user_role = "Analyst";
+			var task_list = new Array();
+
 			var str = $(this).text();
 			var sl_id = id;
 			var sl_name = $(taskNameList[id]).text();
@@ -61,7 +65,22 @@
 			var sl_stat = str.match(regNum)[0];
 			var sl_freq = str.match(regNum)[0];
 
+			{ "survey_id": id, 
+			  "user_fullname": user_fullname,
+			  "user_role": user_role,
+			  "task_list" : [{
+					"task_id": task_id, 
+					"taskname": taskname, 
+					"stat": stat, 
+					"freq": freq }]
+			  "date": date}
 
+			var survey = new Object();
+			survey.survey_id = 999;
+			survey.user_fullname = user_fullname;
+			survey.user_role = user_role;
+			survey.task_list = task_list;
+			survey.date = new Date(); 
 
 			// obj name = task, type = slider title , amount = stat or freq
 			var sl_task = new Object();
@@ -70,7 +89,7 @@
 			sl_task.section = sl_section;
 			sl_task.stat = sl_stat;
 			sl_task.freq = sl_freq;
-			sl_task.date = new Date();
+			// sl_task.date = new Date();
 
 
 			mt_sliderValues_text.push(sl_task)
