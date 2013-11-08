@@ -46,6 +46,19 @@ html, body {
   src: url(../fonts/RobotoSlab-Bold.ttf);
 }
 
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/OpenSans-CondLight.ttf);
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/OpenSans-CondBold.ttf);
+}
+
 
 h2 {
     /*text-shadow: 3px 3px 1px #fff;*/
@@ -67,9 +80,9 @@ article.mainfeature {
 
 .slider {
   position: relative;
-  /*margin: 5px auto;*/
   /*width: 250px;*/
-  width: 95%;
+  width: 100%;
+  margin-top: 14px;
   display: inline-block;
   background: #565656;
   height: 16px;
@@ -82,6 +95,31 @@ article.mainfeature {
   -webkit-transition: width 1s ease-in;
           transition: width 1s ease-in;
 }
+
+.slider:before {
+  content: "less frequent";
+  color: #bbb;
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -1.5em;
+}
+
+.slider:after {
+  content: "more frequent";
+  color: #ddd;
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: -1.5em;
+}
+
 .slider div.ui-slider-range {
   display: block;
   height: 16px;
@@ -136,7 +174,7 @@ article.mainfeature {
   z-index: 2;
   height: 25px;
   width: 17px;
-  border-radius: 20px;
+  border-radius: 8px;
   background-color: #d4d4d4;
   background-image: url(../img/chrome_radial.jpg);
   background-size: 100% 100%;
@@ -168,6 +206,18 @@ article.mainfeature {
 }
 
 
+/*.taskname {
+  display: inline-block;
+  width: 380px;
+  /*height: 50px;*/
+/*  margin: 0 30px 30px 0;
+  text-align: left;
+  font-size: 23px;
+  -webkit-transition: width 1s ease-in;
+  transition: width 1s ease-in;
+  color: #dedede;
+}*/
+
 .taskname {
   display: inline-block;
   width: 380px;
@@ -178,8 +228,9 @@ article.mainfeature {
   -webkit-transition: width 1s ease-in;
   transition: width 1s ease-in;
   color: #dedede;
+  vertical-align: text-top;
+  margin: 0;
 }
-
 .slidebars {
   display: inline-block;
   padding-top: 1em;
@@ -245,14 +296,16 @@ article.mainfeature {
 }
 
 .slider-title {
+  font-family: 'Open Sans Condensed';
+  font-weight: 700;
   position:absolute;
-  /*left: -5em;*/
-  top: -2em;
+  left: -5em;
+  /*top: -1.5em;*/
   font-size: 12px;
-  color: #aaa;
-  /*display: none;*/
+  color: #fff;
+  bottom: 3.5px;
+  border-bottom: 1px solid #25b3c6;
 }
-  /*font-weight: 100;*/
 
 
 .slider-freq {
@@ -271,16 +324,15 @@ article.mainfeature {
 }
 
 .slider-stat {
-  position:absolute;
+/*  position:absolute;
   right: -115px;
   top: -.3em;
   width: 100px;
   text-align: left;
   padding-left: 1em;
   font-size: 12px;
-  color: #aaa;
-  /*font-weight: 100;*/
-    /*display: none;*/
+  color: #aaa;*/
+    display: none;
 
 }
 
@@ -375,18 +427,34 @@ button#submit.btn.btn-2:active {
 
 
 
+@media all and (min-width: 801px) {
+  #submit { float: right; }
+  .taskname { position: relative; top: -1.5em;}
+  .task {height: 6em;}
+}
 
-@media all and (max-width: 650px) and (min-width: 0px) {
+@media all and (max-width: 800px) and (min-width: 451px) {
   body { width: 100%;}                                    
   html,body{ font-size: 30px; width: 100%; }
-  .slider { width: 70%; }
   .horizontal{ margin: 1em 0 0 0;}
   #submit { margin-top: 1em; }
   .taskname { width: 100%; text-align: center;}
   .task { margin: 0;}
+  .slider{ width: 80%; margin-left: 18%;}
 
 }
-@media all and (min-width: 651px) {
-  #submit { float: right; }
-}/* green */
+
+@media all and (min-width: 0px) and (max-width: 450px) {
+    body { width: 100%;}                                    
+  html,body{ font-size: 30px; width: 100%; }
+  .horizontal{ margin: 1em 0 0 0;}
+  #submit { margin-top: 1em; }
+  .taskname { width: 100%; text-align: center;}
+  .task { margin: 0;}
+  .slider-title {}
+  .slider{ width: 80%; margin-left: 18%;}
+}
+
+
+
 
