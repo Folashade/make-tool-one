@@ -23,14 +23,14 @@ var pg = require('pg');
 
 
 /** // FOR LOCAL SERVER  // **/
-var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
-var client = new pg.Client(conString);
-client.connect();
-
-/** // FOR HEROKU SERVER  // **/
-// var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+// var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
 // var client = new pg.Client(conString);
 // client.connect();
+
+/** // FOR HEROKU SERVER  // **/
+var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+var client = new pg.Client(conString);
+client.connect();
 
 /** // SETTING UP BACKEND // **/
 var express = require("express"); // imports express
