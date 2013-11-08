@@ -16,6 +16,7 @@ html, body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  outline: none;
 
 }
 
@@ -96,7 +97,7 @@ article.mainfeature {
           transition: width 1s ease-in;
 }
 
-.slider:before {
+.slider.blue:before {
   content: "less frequent";
   color: #bbb;
   font-family: 'Open Sans Condensed';
@@ -108,7 +109,7 @@ article.mainfeature {
   top: -1.5em;
 }
 
-.slider:after {
+.slider.blue:after {
   content: "more frequent";
   color: #ddd;
   font-family: 'Open Sans Condensed';
@@ -119,6 +120,31 @@ article.mainfeature {
   right: 0;
   top: -1.5em;
 }
+
+.slider.white:before {
+  content: "less important";
+  color: #bbb;
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -1.5em;
+}
+
+.slider.white:after {
+  content: "more important";
+  color: #ddd;
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: -1.5em;
+}
+
 
 .slider div.ui-slider-range {
   display: block;
@@ -281,7 +307,7 @@ article.mainfeature {
 
 
 #page-header {
-  color: #eee; 
+  color: #fff; 
   font-size: 35px;
   background-color: #25b3c6;
   width: 90%;
@@ -289,7 +315,7 @@ article.mainfeature {
   border-radius: 0 0 .5em .5em;
   margin-bottom: 1em;
   padding: .3em;
-  /*text-shadow: -1px -1px 2px #333;*/
+  text-shadow: 2px 2px 0px #333;
 
 }
 
@@ -438,9 +464,8 @@ button#submit.btn.btn-2:active {
   #submit { margin-top: 1em; }
   .taskname { width: 100%; text-align: center;}
   .task { margin: 0;}
-  .slider{ width: 80%; margin-left: 18%;}
+  .slider{ width: 80%; margin-left: 15%;}
   .slidebars{ max-width: 600px;}
-
 }
 
 @media all and (min-width: 0px) and (max-width: 450px) {
