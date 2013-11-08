@@ -180,14 +180,22 @@ $( document ).ready(function() {
 
   /*** // SUBMIT BUTTON SCRIPT // ***/
 	 // Need to get the values of all the current sliders and (eventually) store in the db
-  $("#submit").click(function(){
+  $("#submitButton").click(function(){
      // $("#wrapper").fadeOut();
      $(".horizontal").fadeOut();
      $(".rule").fadeOut();
      $(".task").fadeOut();
      $("#submit").fadeOut();
      $(".horzcenter").slideDown();
-    // $("#thanks").fadeIn();
+     $("input").fadeOut();
+     $("#description").fadeOut();
+    $(".thanks").css("color", "#fff");
+    $("#submitButton").text("SUBMITTED")
+    $("#submitButton").css({"background": "#222",
+"color": "#000",
+"box-shadow": "inset 0px 0px 4px 1px #666",
+"border-radius": "20px",
+"border": "1px solid #000"})
   }); /* END OF: submit function */
 
 

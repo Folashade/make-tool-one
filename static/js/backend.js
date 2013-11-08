@@ -34,37 +34,33 @@
 		survey.date = new Date(); 
 
 		/* Get (Survey) Task Responses */
-		var mt_sliderValuesFromDOM = $('.slider');
+		var mt_sliderValuesFromDOM = $('.slidebars');
 		var taskNameList = $('.task .taskname');
 
 		// window.add(di, ai, pi);
 		var mt_sliderValues_array = new Array();
 
-		$.each(mt_sliderValuesFromDOM, function(id){
-				var regExWord = /\w+/; 
-				var regExNum = /\d+/; 
+		// var end = mt_sliderValuesFromDOM.length;
 
-				/*** Data Rerieval from DOM ***/
-				var str = $(this).text();
-				var sl_id = id;
-				var sl_name = $(taskNameList[id]).text();
-				var sl_section = str.match(regExWord)[0];
-				var sl_stat = str.match(regExNum)[0];
-				var sl_freq = str.match(regExNum)[0];
+ 			$.each(mt_sliderValuesFromDOM, function(id){
 
-				// obj name = task, type = slider title , amount = stat or freq
-				var sl_task = new Object();
-				sl_task.id = sl_id;
-				sl_task.taskname = sl_name;
-				sl_task.stat = sl_stat;
-				sl_task.freq = sl_freq;
-				sl_task.survey_id = survey.survey_id; // FOREIGN KEY 
-				
-				survey.task_list.push(sl_task);
+					/*** Data Rerieval from DOM ***/
+					var str = $(this).text();
+					var slider_id = id;
+					var slider_name = $(taskNameList[id]).text();
+						var res = str.match(/\w+/g); // not part of the object
+					var slider_stat = res[1];
+					var slider_freq = res[3];
 
-				// mt_sliderValues_array.push(sl_task)
-				// listings.push(sl_task);
-				// window.add(sl_task.id, sl_task.taskname, sl_task.sl_section, sl_task.stat, sl_task.freq, sl_task.date);
+					// obj name = task, type = slider title , amount = stat or freq
+					var slider_task = new Object();
+					slider_task.id = slider_id;
+					slider_task.taskname = slider_name;
+					slider_task.stat = slider_stat;
+					slider_task.freq = slider_freq;
+					slider_task.survey_id = survey.survey_id; // FOREIGN KEY 
+					
+					survey.task_list.push(slider_task);
 		})
 
 				// mt_sliderValues_array.push(sl_task)
@@ -95,6 +91,7 @@
   function refreshDOM(){
 		if (listings === undefined) return;
 		
+
 		var container = $(".listings");
 		container.html("");
     
@@ -199,6 +196,39 @@
       success: function(data) { }
     });
   }
+
+
+
+
+
+
+// ADDDING TASKKSSSS
+  function addTask1(){
+  	var getInput = $('#taskadd-one').val();
+		var newName = getInput || ' Not Specified';
+		$('.hidden.one')[0].children[2].children[0].innerHTML = newName;
+		$('.hidden.one').removeClass('hidden');
+		$('#addition1').addClass('hidden');
+		$('#addition2').removeClass('hidden');
+	}
+
+	  function addTask2(){
+  	var getInput = $('#taskadd-two').val();
+		var newName = getInput || ' Not Specified';
+		$('.hidden.two')[0].children[2].children[0].innerHTML = newName;
+		$('.hidden.two').removeClass('hidden');
+		$('#addition2').addClass('hidden');
+		$('#addition3').removeClass('hidden');
+	}
+
+	  function addTask3(){
+  	var getInput = $('#taskadd-three').val();
+		var newName = getInput || ' Not Specified';
+		$('.hidden.three')[0].children[2].children[0].innerHTML = newName;
+		$('.hidden.three').removeClass('hidden');
+		$('#addition3').addClass('hidden');
+		// $('#addition2').removeClass('hidden');
+	}
 
 
   $(document).ready(function() {

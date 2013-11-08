@@ -22,6 +22,8 @@
 
      <script language="javascript" type="text/javascript" src="js/t2_sliderScript.js"></script>
      <script language="javascript" type="text/javascript" src="js/backend.js"></script>
+     <script language="javascript" type="text/javascript" src="js/addingTasks.js"></script>
+
      <script language="javascript" type="text/javascript" src="js/submitScript.js"></script>
   </head>
 
@@ -38,25 +40,20 @@
 
         <div id="description">
           <p>
-            Rate the relevance of these <span style="font-weight:400">12</span> tasks.
+            Rate the relevance of these <span style="font-weight:400">12</span> tasks. Feel free to add your own important tasks at the end of the survey.
+            <span style="font-weight:400"> -- Thank You!</span>
           </p>
         </div>
 
 
-        <form name="myform" action="javascript:addListing()">
-          <div class="row">
-            <label>Author:</label>  <input id="author-input" name="Author" type="text" placeholder="Harold"/> 
-          </div>
-          <div class="row">
-            <label>Description:</label>  <input id="desc-input" name="Desc" type="text" placeholder="A blue car..."/>
-          </div>
-          <div class="row">
-            <label>Price:</label>  <input id="price-input" name="Price" type="text" placeholder="3133.70"/>
-          </div>
-          <div class="row right">
-            <input id="submitButton" name="Submit"  type="submit" value="Add Listing"/>
-          </div>
-        </form>
+            <input id="user_fullname" name="Name" type="text" placeholder="Enter Name Here"/> 
+            <br>
+            <span id="roletitle" style="color: #fff; font-size: 20px;">Choose Role</span>
+            <input type="checkbox" id="c1" name="cc">
+            <label for="c1"><span></span>Broker Dealer</label>
+            <input type="checkbox" id="c2" name="cc" />
+            <label for="c2"><span></span>Analyst</label>
+
 
 
         <div class="task">
@@ -251,7 +248,7 @@
             </div>
         </div>
 
-               <div class="horizontal"></div>
+      <div class="horizontal"></div>
         <div class="rule"></div>
 
                        <div class="task">
@@ -268,22 +265,104 @@
             </div>
         </div>
 
+        <div id="addition1">
+          <form name="myform" action="javascript:addTask1()">
+            <input id="taskadd-one" type="text" placeholder="+ Add Task 1"/>
+        </form>
+        </div>
+
+        <div class="hidden one">
+          <div class="horizontal"></div>
+          <div class="rule"></div>
+
+            <div class="task">
+            <div class="taskname">Hidden One</div>
+              <div class="slidebars">
+                <div class="slider blue">
+                   <div class="slider-title">Frequency</div>
+                   <div class="slider-freq">4</div>
+                </div>
+                <div class="slider white">
+                  <div class="slider-title">Importance</div>
+                  <div class="slider-stat">8</div>
+                </div>
+              </div>
+          </div>
+        </div> <!-- hidden one -->
+
+
+        <div id="addition2" class="hidden">
+          <form name="myform" action="javascript:addTask2()">
+            <input id="taskadd-two" type="text" placeholder="+ Add Task 2"/>
+        </form>
+        </div>
+                <div class="hidden two">
+          <div class="horizontal"></div>
+          <div class="rule"></div>
+
+            <div class="task">
+            <div class="taskname">Hidden Two</div>
+              <div class="slidebars">
+                <div class="slider blue">
+                   <div class="slider-title">Frequency</div>
+                   <div class="slider-freq">4</div>
+                </div>
+                <div class="slider white">
+                  <div class="slider-title">Importance</div>
+                  <div class="slider-stat">8</div>
+                </div>
+              </div>
+          </div>
+        </div> <!-- hidden two -->
+
+      <div id="addition3" class="hidden">
+        <form name="myform" action="javascript:addTask3()">
+          <input id="taskadd-three" type="text" placeholder="+ Add Task 3"/>
+      </form>
+      </div>
+
+                        <div class="hidden three">
+          <div class="horizontal"></div>
+          <div class="rule"></div>
+
+            <div class="task">
+            <div class="taskname">Hidden Two</div>
+              <div class="slidebars">
+                <div class="slider blue">
+                   <div class="slider-title">Frequency</div>
+                   <div class="slider-freq">4</div>
+                </div>
+                <div class="slider white">
+                  <div class="slider-title">Importance</div>
+                  <div class="slider-stat">8</div>
+                </div>
+              </div>
+          </div>
+        </div> <!-- hidden three -->
+
+
 
 
 
       
 
       
-        <button id="submit" class="btn btn-2">Submit</button>
 
       </div> <!-- wrapper -->
+      <form name="myform" action="javascript:addListing()">
+        <div style="text-align:center; width: 100%;">
+          <button id="submitButton" class="btn btn-2" type="submit">Submit</button>
+        </div>
+      </form>
+              
+
     <script type="text/javascript">
       $( document ).ready(function() {
     console.log( "ready!" );
           // $('.slider').touchDraggable();
 
-      $('.slider.blue').touchDraggable();
-      $('.slider.white').touchDraggable();
+      // $('.slider.blue').touchDraggable();
+      // $('.slider.white').touchDraggable();
 
     });
 
