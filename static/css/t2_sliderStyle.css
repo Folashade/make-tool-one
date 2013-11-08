@@ -72,17 +72,19 @@ article.mainfeature {
   width: 95%;
   display: inline-block;
   background: #565656;
-  height: 7px;
+  height: 16px;
   box-shadow: 0 1px 0px rgba(255, 255, 255, 0.25), inset 0 0 4px rgba(0, 0, 0, 0.9);
   border-radius: 7px;
   margin-bottom: 10px;
-
+  background-image: url('../img/4x4a50.png');
+  background-size: 160% 100%;
+  background-position-x: -1px;
   -webkit-transition: width 1s ease-in;
           transition: width 1s ease-in;
 }
 .slider div.ui-slider-range {
   display: block;
-  height: 7px;
+  height: 16px;
   border-radius: 7px;
   transition-property: background-color;
   transition-duration: 100ms;
@@ -132,8 +134,8 @@ article.mainfeature {
   top: -5px;
   margin-left: -9px;
   z-index: 2;
-  height: 16px;
-  width: 16px;
+  height: 25px;
+  width: 17px;
   border-radius: 20px;
   background-color: #d4d4d4;
   background-image: url(../img/chrome_radial.jpg);
@@ -145,8 +147,8 @@ article.mainfeature {
 .slider a.ui-slider-handle:after {
   content: "";
   position: absolute;
-  width: 15px;
-  height: 15px;
+  height: 25px;
+  width: 17px;
   left: -1px;
   top: -4px;
   background-color: none;

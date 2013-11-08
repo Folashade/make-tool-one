@@ -31,10 +31,11 @@ $( document ).ready(function() {
 
   $(".slider").slider({
     orientation: "horizontal",
-    range: "min",
+    range: false,
     max: 100,
     value: 0,
     animate: 1300,
+    step: 20,
     change: function(e,ui){
       //   // Do something with ui.value
       //   /* console.log(ui.handle.previousSibling.previousElementSibling.innerText); */
@@ -78,7 +79,7 @@ $( document ).ready(function() {
       // If not any Freq, must be Relevancy  
        case (val == val):
          $(this).children()[1].innerText = Math.floor(val/10)*10;
-         $(this).slider({'step':10});
+         $(this).slider({'step':20});
       } /* end of switch */    
       
       $($(this).children()[1]).animate({ opacity: 1});
