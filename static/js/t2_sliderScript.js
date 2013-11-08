@@ -214,6 +214,7 @@ $( document ).ready(function() {
       ***/
 
       // $('.slider.blue').touchDraggable();
+      // $('.slider.white').touchDraggable();
 
 
 }); /* END OF: document.ready */
