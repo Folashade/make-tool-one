@@ -28,3 +28,28 @@ newTask[0].appendChild(newSlidePairs[0]);
 $('#wrapper').append($('<div>').attr('class', 'horizontal'));
 $('#wrapper').append($('<div>').attr('class', 'rule'));
 $('#wrapper').append(newTask);
+
+
+// var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+																	user: password@ host:port.database
+// Setting Up Environment
+	user:     process.env.MAKE_TOOL_ONE_USER ,
+	password: process.env.MAKE_TOOL_ONE_PASSWORD, 
+	database: process.env.MAKE_TOOL_ONE_DATABASE ,	
+	host:     process.env.MAKE_TOOL_ONE_HOST ,
+	port:     process.env.MAKE_TOOL_ONE_PORT 
+
+
+	ku config:set MAKE_TOOL_ONE_USER=mpeyvkpeoywcaj
+heroku config:set MAKE_TOOL_ONE_PASSWORD=mQB_kCBkTaZCP-ct0OhCNl3zBO
+heroku config:set MAKE_TOOL_ONE_DATABASE=d2d1mma7140cav
+heroku config:set MAKE_TOOL_ONE_HOST=ec2-54-225-102-116.compute-1.amazonaws.com
+heroku config:set MAKE_TOOL_ONE_PORT=5432
+
+
+
+
+
+
+
+
