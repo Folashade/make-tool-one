@@ -133,7 +133,7 @@ app.post("/listings", function(request, response) {
     // SVID
     var task_list_text = JSON.stringify(item.task_list);
     var psql_date = new Date();
-    client.query('INSERT INTO surveys VALUES ($1, $2, $3, $4, $5)',
+    client.query('INSERT INTO surveys VALUES ($2, $3, $4, $5)',
       [item.survey_id, item.user_fullname, item.user_role, task_list_text, psql_date]);
 
 	  for (var i=0; i < item.task_list.length; i++){
