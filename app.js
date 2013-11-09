@@ -25,14 +25,14 @@ var pg = require('pg');
 
 /** // FOR LOCAL SERVER  // **/
 var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
-// var client = new pg.Client(conString);
-var client = new pg.Client({
-  user:     process.env.MAKE_TOOL_ONE_USER ,
-  password: process.env.MAKE_TOOL_ONE_PASSWORD, 
-  database: process.env.MAKE_TOOL_ONE_DATABASE ,  
-  host:     process.env.MAKE_TOOL_ONE_HOST ,
-  port:     process.env.MAKE_TOOL_ONE_PORT 
-})
+var client = new pg.Client(conString);
+// var client = new pg.Client({
+//   user:     process.env.MAKE_TOOL_ONE_USER ,
+//   password: process.env.MAKE_TOOL_ONE_PASSWORD, 
+//   database: process.env.MAKE_TOOL_ONE_DATABASE ,  
+//   host:     process.env.MAKE_TOOL_ONE_HOST ,
+//   port:     process.env.MAKE_TOOL_ONE_PORT 
+// })
 client.connect();
 
 /** // FOR HEROKU SERVER  // **/
@@ -133,15 +133,23 @@ app.post("/listings", function(request, response) {
     // SVID
     var task_list_text = JSON.stringify(item.task_list);
     var psql_date = new Date();
-    client.query('INSERT INTO surveys VALUES ($2, $3, $4, $5)',
-      [item.survey_id, item.user_fullname, item.user_role, task_list_text, psql_date]);
+    // client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4)',
+    //   [item.user_fullname, item.user_role, task_list_text, psql_date]);
+    // client.query('INSERT INTO surveys VALUES ($1, $2, $3, $4, $5)',
+      // [3, item.user_fullname, item.user_role, task_list_text, psql_date]);
 
-	  for (var i=0; i < item.task_list.length; i++){
+  //let's pretend we have a user table with the 'id' as the auto-incrementing primary key
+  client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4) RETURNING survey_id',
+    [item.user_fullname, item.user_role, task_list_text, psql_date]).on('row', function (row) {
+    var newlyCreatedUserId = row.id;
+    for (var i=0; i < item.task_list.length; i++){
       console.log('LOOP: --- > adding tasks');
       var task = item.task_list[i];
       client.query('INSERT INTO tasks VALUES ($1, $2, $3, $4, $5)',
         [task.id, task.taskname, task.stat, task.freq, task.survey_id]);    
     }
+  });
+
 
 	  console.log(' ----- inputted into db ----- ');
 	   // Query the DB 
