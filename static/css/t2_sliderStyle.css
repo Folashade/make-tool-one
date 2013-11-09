@@ -319,6 +319,12 @@ article.mainfeature {
 
 }
 
+#roletitle {
+  font-weight: 300;
+  color: #fff;
+  font-size: 20px;
+}
+
 .slider-title {
   font-family: 'Open Sans Condensed';
   font-weight: 700;
@@ -482,6 +488,7 @@ input {
 // on focus change styling of borders
 input:focus {
   color: #111;
+  color: yellow;
   border-color: #444;
 }
 
@@ -507,21 +514,44 @@ input:focus {
 
 /*// on focus change colour of placeholder*/
 .placeholder:focus {
-  color: #ddd;
+  color: #eee;
+  opacity: .3;
 }
 
 input:focus::-webkit-input-placeholder {
-  color: #ddd;
+  color: #eee;  opacity: .3;
+
 }
 
 input:focus::-moz-input-placeholder {
-  color: #ddd;
+  color: #eee;  opacity: .3;
+
 }
 
 input:focus::-ms-input-placeholder {
-  color: #ddd;
+  color: #eee;  opacity: .3;
+
 }
 
+
+/*// on focus change colour of placeholder*/
+#user_fullname.placeholder {
+  /*color: #ddd;*/
+  color: #25b3c6;  opacity: .9;
+
+}
+
+#user_fullname.input::-webkit-input-placeholder {
+  color: #25b3c6;  opacity: .9;
+}
+
+#user_fullname.input::-moz-input-placeholder {
+  color: #25b3c6;  opacity: .9;
+}
+
+#user_fullname.input::-ms-input-placeholder {
+  color: #25b3c6;  opacity: .9;
+}
 
 
 
@@ -567,5 +597,9 @@ margin-right: auto;}
 }
 
 
+
+#user_fullname{
+  color: #eee;
+}
 
 

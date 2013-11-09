@@ -210,6 +210,17 @@ $( document ).ready(function() {
 
 
 
+  // var $unique = $('input.unique');
+  // $unique.click(function() {
+  //     $unique.removeAttr('checked');
+  //     $(this).attr('checked', true);
+  // });
+
+  // var $uniqueL = $('label.unique');
+  // $uniqueL.click(function() {
+  //     $unique.removeAttr('checked');
+  //     $(this).attr('checked', true);
+  // });
 
 
   /*************************
