@@ -1,7 +1,4 @@
-  // ------------
-  // IMPLEMENT ME
-  // ------------
-  
+
   // Debugging - console.logs run only when true
   debug = true;
 
