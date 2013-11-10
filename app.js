@@ -68,16 +68,9 @@ app.get("/listings/:id", function(request, response){
 
 // create new item
 app.post("/listings", function(request, response) {
-  // console.log(request.body);
-  console.log('-------- APP.POST: print item ___-____');
-  // var item = { "id": request.body.id,
-  //              "taskname": request.body.taskname,
-  //              "section": request.body.section,
-  //              "stat": request.body.stat,
-  //              "freq": request.body.freq,
-  //              "date": new Date() };
+  // console.log('-------- APP.POST: print item ___-____');
   var item = request.body.survey;
-  console.log(item);
+  // console.log(item);
 
  
   var successful =
@@ -85,7 +78,7 @@ app.post("/listings", function(request, response) {
       // (item.date !== undefined) &&
       // (item.taskname !== undefined);
 
-  console.log("successful : " + successful);
+  // console.log("successful : " + successful);
 
   if (successful) {
     listings.push(item);
@@ -98,7 +91,8 @@ app.post("/listings", function(request, response) {
 	  // client.query('INSERT INTO surveys VALUES ($1, $2, $3)',[item.author, price_int, item.desc]);
 
     // SVID
-    var task_list_text = JSON.stringify(item.task_list);
+    // var task_list_text = JSON.stringify(item.task_list);
+    var task_list_text = 'omitted';
     var psql_date = new Date();
     // client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4)',
     //   [item.user_fullname, item.user_role, task_list_text, psql_date]);
@@ -106,19 +100,21 @@ app.post("/listings", function(request, response) {
       // [3, item.user_fullname, item.user_role, task_list_text, psql_date]);
 
   //let's pretend we have a user table with the 'id' as the auto-incrementing primary key
-  client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4) RETURNING survey_id',[item.user_fullname, item.user_role, task_list_text, psql_date]).on('row', function (row) {
-    var newlyCreatedSurveyId = row.survey_id;
-    console.log("newlyCreatedUserId" + newlyCreatedSurveyId);
-    for (var i=0; i < item.task_list.length; i++){
-      console.log('LOOP: --- > adding tasks');
-      var task = item.task_list[i];
-      client.query('INSERT INTO tasks VALUES ($1, $2, $3, $4, $5)',
-        [task.id, task.taskname, task.stat, task.freq, newlyCreatedSurveyId]);    
-    }
+  client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4) RETURNING survey_id',
+    [item.user_fullname, item.user_role, task_list_text, psql_date]).on('row', function (row) {
+      var newlyCreatedSurveyId = row.survey_id;
+      console.log(' ----- inputted into db ----- ');
+      // console.log("newlyCreatedUserId" + newlyCreatedSurveyId);
+      for (var i=0; i < item.task_list.length; i++){
+        // console.log('LOOP: --- > adding tasks');
+        var task = item.task_list[i];
+        client.query('INSERT INTO tasks VALUES ($1, $2, $3, $4, $5)',
+          [task.id, task.taskname, task.stat, task.freq, newlyCreatedSurveyId]);    
+      }
   });
 
 
-	  console.log(' ----- inputted into db ----- ');
+	  
 	   // Query the DB 
 	  // var query = client.query('SELECT * FROM surveys');
 	  // query.on('row', function(row) {

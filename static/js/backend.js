@@ -8,7 +8,7 @@
   // Print function
   var print = function(input){
 		if (debug === true){
-			console.log(input);
+			// console.log(input);
 		}
   }
 
@@ -24,6 +24,9 @@
   	/* Get User Info */
 		var user_fullname = $('#user_fullname')[0].value;
   	($('#c2')[0].checked) ? (user_role = "Analyst" ) : (user_role = "Broker Dealer");
+
+
+
  
 		/* Create Survey */
 		var survey = new Object();
@@ -60,13 +63,17 @@
 					slider_task.freq = slider_freq;
 					slider_task.survey_id = survey.survey_id; // FOREIGN KEY 
 					
-					survey.task_list.push(slider_task);
+					// NULL CHECK 
+					if (slider_task.taskname !== undefined && slider_task.taskname !== ''){
+						survey.task_list.push(slider_task);
+					}
+					
 		})
 
 				// mt_sliderValues_array.push(sl_task)
 				listings.push(survey);
 				window.add(survey);
-				console.log(listings);
+				// console.log(listings);
 				print("-------------------------------");
 				print(survey);
 				// window.add(sl_task.id, sl_task.taskname, sl_task.sl_section, sl_task.stat, sl_task.freq, sl_task.date);
@@ -84,6 +91,7 @@
 			// $('#author-input').val("");
 			// $('#desc-input').val("");
 			// $('#price-input').val("");
+		
   }
  
 
