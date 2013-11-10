@@ -2,6 +2,8 @@ __ BRANCH: SLIDER - TICKS __
 
 Version of app presented in class.Has the updated task titles and color scheme.
 
+ + [Heroku Config](https://devcenter.heroku.com/articles/config-vars)
+
  + Tabs Open
 	- Make Tool
 	- Server 
@@ -130,3 +132,4 @@ user-select: none;
 #### take off Glow
 input:focus { outline: none; }
 
+## _______________________________

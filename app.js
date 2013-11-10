@@ -1,9 +1,11 @@
 var pg = require('pg');
+var express = require("express");// imports express
+var app = express();             // create a new instance of express
+var fs = require("fs");          // imports the fs module (reading and writing to a text file)
+var path = require("path");
 
-
-/** // FOR LOCAL SERVER  // **/
-// var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
-// var client = new pg.Client(conString);
+// for these to work they need to be set up with heroku config
+// heroku config:set GITHUB_USERNAME=joesmith 
 var client = new pg.Client({
   user:     process.env.MAKE_TOOL_ONE_USER || 'FOkunubi',
   password: process.env.MAKE_TOOL_ONE_PASSWORD || 'folashade', 
@@ -11,23 +13,10 @@ var client = new pg.Client({
   host:     process.env.MAKE_TOOL_ONE_HOST || 'localhost',
   port:     process.env.MAKE_TOOL_ONE_PORT || 5432
 })
+
 client.connect();
 
-/** // FOR HEROKU SERVER  // **/
-// var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
-// var client = new pg.Client(conString);
-// client.connect();
-
-/** // SETTING UP BACKEND // **/
-var express = require("express"); // imports express
-var app = express();        // create a new instance of express
-
-// imports the fs module (reading and writing to a text file)
-var fs = require("fs");
-var path = require("path");
-
-// the bodyParser middleware allows us to parse the
-// body of a request
+// the bodyParser middleware allows us to parse the body of a request
 app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -236,3 +225,14 @@ app.listen(process.env.PORT || 5000)
 // 	var spawn = require('child_process').spawn
 // 	spawn('open', ['http://localhost:5000']);
 // }, 500);
+
+/************* for reference *************/
+// this was at the top of the file
+/** // FOR LOCAL SERVER  // **/
+// var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
+// var client = new pg.Client(conString);
+
+/** // FOR HEROKU SERVER  // **/
+// var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+// var client = new pg.Client(conString);
+// client.connect();

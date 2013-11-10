@@ -38,8 +38,8 @@ $( document ).ready(function() {
     step: 20,
     change: function(e,ui){
       //   // Do something with ui.value
-      //   /* console.log(ui.handle.previousSibling.previousElementSibling.innerText); */
-      //   /* ui.handle.previousSibling.previousElementSibling.innerText = "CHANGED i sondee"; */
+      //   console.log(ui.handle.previousSibling.previousElementSibling.innerText); 
+      //   ui.handle.previousSibling.previousElementSibling.innerText = "CHANGED"; 
       //  var newVal = ui.handle.previousSibling.previousElementSibling.innerText;
           var val = $(this).slider("value");
         

@@ -22,9 +22,9 @@
   // Implement addListing()
   function addListing(){
   	/* Get User Info */
-		var user_fullname = "Fake Name"; // $('#fullname_input').val()
-		var user_role = "Analyst"; // $$('#role_input').val()
-
+		var user_fullname = $('#user_fullname')[0].value;
+  	($('#c2')[0].checked) ? (user_role = "Analyst" ) : (user_role = "Broker Dealer");
+ 
 		/* Create Survey */
 		var survey = new Object();
 		survey.survey_id = 999;
