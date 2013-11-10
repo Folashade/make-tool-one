@@ -1,38 +1,16 @@
-// BRANCH: SLIDER - TICKS
-
 var pg = require('pg');
 
 
-  // user:     process.env.MAKE_TOOL_ONE_USER ,
-  // password: process.env.MAKE_TOOL_ONE_PASSWORD, 
-  // database: process.env.MAKE_TOOL_ONE_DATABASE ,  
-  // host:     process.env.MAKE_TOOL_ONE_HOST ,
-  // port:     process.env.MAKE_TOOL_ONE_PORT 
-
-/** // FOR HEROKU SERVER  //  **/
-
-
-// client.connect(process.env.DATABASE_URL, function(err, client) {
-//   var query = client.query('SELECT * FROM surveys');
-
-//   query.on('row', function(row) {
-//     console.log(JSON.stringify(row));
-//   });
-// });
-
-// not working 
-
-
 /** // FOR LOCAL SERVER  // **/
-var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
-var client = new pg.Client(conString);
-// var client = new pg.Client({
-//   user:     process.env.MAKE_TOOL_ONE_USER ,
-//   password: process.env.MAKE_TOOL_ONE_PASSWORD, 
-//   database: process.env.MAKE_TOOL_ONE_DATABASE ,  
-//   host:     process.env.MAKE_TOOL_ONE_HOST ,
-//   port:     process.env.MAKE_TOOL_ONE_PORT 
-// })
+// var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
+// var client = new pg.Client(conString);
+var client = new pg.Client({
+  // user:     process.env.MAKE_TOOL_ONE_USER || 'FOkunubi',
+  password: process.env.MAKE_TOOL_ONE_PASSWORD || 'folashade', 
+  database: process.env.MAKE_TOOL_ONE_DATABASE || 'make_tool',  
+  host:     process.env.MAKE_TOOL_ONE_HOST || 'localhost',
+  port:     process.env.MAKE_TOOL_ONE_PORT || 5432
+})
 client.connect();
 
 /** // FOR HEROKU SERVER  // **/
@@ -140,23 +118,23 @@ app.post("/listings", function(request, response) {
 
   //let's pretend we have a user table with the 'id' as the auto-incrementing primary key
   client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4) RETURNING survey_id',[item.user_fullname, item.user_role, task_list_text, psql_date]).on('row', function (row) {
-    var newlyCreatedUserId = row.survey_id;
-    console.log("newlyCreatedUserId" + newlyCreatedUserId);
+    var newlyCreatedSurveyId = row.survey_id;
+    console.log("newlyCreatedUserId" + newlyCreatedSurveyId);
     for (var i=0; i < item.task_list.length; i++){
       console.log('LOOP: --- > adding tasks');
       var task = item.task_list[i];
       client.query('INSERT INTO tasks VALUES ($1, $2, $3, $4, $5)',
-        [task.id, task.taskname, task.stat, task.freq, newlyCreatedUserId]);    
+        [task.id, task.taskname, task.stat, task.freq, newlyCreatedSurveyId]);    
     }
   });
 
 
 	  console.log(' ----- inputted into db ----- ');
 	   // Query the DB 
-	  var query = client.query('SELECT * FROM surveys');
-	  query.on('row', function(row) {
-	    console.log(JSON.stringify(row));
-    });
+	  // var query = client.query('SELECT * FROM surveys');
+	  // query.on('row', function(row) {
+	    // console.log(JSON.stringify(row));
+    // });
       
 
 	
