@@ -5,7 +5,7 @@ var pg = require('pg');
 // var conString = "postgres://FOkunubi:folashade@localhost/make_tool";
 // var client = new pg.Client(conString);
 var client = new pg.Client({
-  // user:     process.env.MAKE_TOOL_ONE_USER || 'FOkunubi',
+  user:     process.env.MAKE_TOOL_ONE_USER || 'FOkunubi',
   password: process.env.MAKE_TOOL_ONE_PASSWORD || 'folashade', 
   database: process.env.MAKE_TOOL_ONE_DATABASE || 'make_tool',  
   host:     process.env.MAKE_TOOL_ONE_HOST || 'localhost',
