@@ -139,14 +139,14 @@ app.post("/listings", function(request, response) {
       // [3, item.user_fullname, item.user_role, task_list_text, psql_date]);
 
   //let's pretend we have a user table with the 'id' as the auto-incrementing primary key
-  client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4) RETURNING survey_id',
-    [item.user_fullname, item.user_role, task_list_text, psql_date]).on('row', function (row) {
-    var newlyCreatedUserId = row.id;
+  client.query('INSERT INTO surveys (user_fullname, user_role, task_list, date) VALUES ($1, $2, $3, $4) RETURNING survey_id',[item.user_fullname, item.user_role, task_list_text, psql_date]).on('row', function (row) {
+    var newlyCreatedUserId = row.survey_id;
+    console.log("newlyCreatedUserId" + newlyCreatedUserId);
     for (var i=0; i < item.task_list.length; i++){
       console.log('LOOP: --- > adding tasks');
       var task = item.task_list[i];
       client.query('INSERT INTO tasks VALUES ($1, $2, $3, $4, $5)',
-        [task.id, task.taskname, task.stat, task.freq, task.survey_id]);    
+        [task.id, task.taskname, task.stat, task.freq, newlyCreatedUserId]);    
     }
   });
 

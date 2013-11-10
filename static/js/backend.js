@@ -46,7 +46,7 @@
 
 					/*** Data Rerieval from DOM ***/
 					var str = $(this).text();
-					var slider_id = id;
+					var slider_id = id + 1;
 					var slider_name = $(taskNameList[id]).text();
 						var res = str.match(/\w+/g); // not part of the object
 					var slider_stat = res[1];
