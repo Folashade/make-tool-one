@@ -4,7 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <title>TGiFolashade</title>
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
-    <title>Tasks &amp; Tools</title>
+        <title>Tasks &amp; Tools</title>
     <link rel="shortcut icon" href="img/favicon.ico">
 
      <!--<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,400,300' rel='stylesheet' type='text/css'/>-->
@@ -48,7 +48,7 @@
           <div id="chooserole">
             <input id="user_fullname" name="Name" type="text" placeholder="Enter Name Here"/> 
             <br>
-            <span id="roletitle">Choose Role</span>
+            <div id="roletitle">Choose Role</div>
             <input type="radio" id="c1" name="cc" class='unique' value="Broker Dealer">
             <label for="c1" class='unique'><span></span>Broker Dealer</label>
             <input type="radio" id="c2" name="cc" class='unique' value="Analyst">
@@ -266,7 +266,8 @@
             </div>
         </div>
 
-        <div id="addition1">
+        <div style="color: #25b3c6; font-size: 20px; margin-top: 30px;">Task Not Listed? <br> Add up to three extra tasks here.</div>
+          <div id="addition1">
           <form name="myform" action="javascript:addTask1()">
             <input id="taskadd-one" type="text" placeholder="+ Add Task 1"/>
         </form>

@@ -574,7 +574,7 @@ input:focus::-ms-input-placeholder {
   #submitButton { margin-top: 1em; }
   .taskname { width: 100%; text-align: center;}
   .task { margin: 0;}
-  .slider{ width: 80%; margin-left: 15%;}
+  .slider{ width: 80%; margin-left: 10%;}
   .slidebars{ max-width: 600px;}
   #submitButton {margin-top: 1em;
 display: inline-block;
@@ -590,7 +590,7 @@ margin-right: auto;}
   .taskname { width: 100%; text-align: center;}
   .task { margin: 0;}
   .slider-title {}
-  .slider{ width: 80%; margin-left: 18%;}
+  .slider{ width: 78%; margin-left: 14%}
     #submitButton {margin-top: 1em;
 display: inline-block;
 margin-left: auto;
